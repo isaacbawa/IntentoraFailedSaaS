@@ -1,0 +1,966 @@
+[
+  {
+    "id": "1",
+    "name": "Homejoy",
+    "market": "Home Services",
+    "revenue": "$38M raised",
+    "duration": "4 years",
+    "failure_reasons": [
+      "High customer acquisition costs",
+      "Poor unit economics",
+      "Legal issues with worker classification",
+      "Inability to retain quality cleaners"
+    ],
+    "lessons_learned": [
+      "Unit economics must work before scaling",
+      "Regulatory compliance is critical in labor markets",
+      "Quality control is essential in service businesses",
+      "Customer acquisition costs can kill profitable businesses"
+    ],
+    "tags": [
+      "Legal Issues",
+      "Unit Economics",
+      "Customer Acquisition",
+      "Service Quality"
+    ],
+    "current_venture_name": "Intentora",
+    "current_venture_url": "https://isaacbawa.github.io/Personal-Portfolio/",
+    "source_url": "https://failory.com/cemetery/homejoy",
+    "is_premium": false,
+    "short_description": "Home cleaning service that raised $38M but shut down due to legal battles and poor economics",
+    "detailed_summary": "Homejoy was a home cleaning service that connected customers with independent cleaners through an app. Despite raising significant funding and achieving rapid growth, the company shut down in 2015 due to a combination of factors including high customer acquisition costs, legal challenges around worker classification, and inability to maintain service quality at scale."
+  },
+  {
+    "id": "2",
+    "name": "Quirky",
+    "market": "Product Development",
+    "revenue": "$185M raised",
+    "duration": "8 years",
+    "failure_reasons": [
+      "Unsustainable business model",
+      "High manufacturing costs",
+      "Poor product-market fit for most inventions",
+      "Lack of focus on profitable products"
+    ],
+    "lessons_learned": [
+      "Not every invention deserves to be a product",
+      "Manufacturing costs can be prohibitive for complex products",
+      "Focus on fewer, higher-quality opportunities",
+      "Validate market demand before heavy investment"
+    ],
+    "tags": [
+      "Business Model",
+      "Manufacturing",
+      "Product-Market Fit",
+      "Focus"
+    ],
+    "current_venture_name": "Intentora",
+    "current_venture_url": "https://isaacbawa.github.io/Personal-Portfolio/",
+    "source_url": "https://failory.com/cemetery/quirky",
+    "is_premium": true,
+    "short_description": "Crowdsourced invention platform that burned through $185M trying to turn every idea into a product",
+    "detailed_summary": "Quirky was a platform that crowdsourced product development, allowing users to submit invention ideas that would be developed and sold by the company. The platform struggled with high manufacturing costs, poor product-market fit for most inventions, and an unsustainable business model that required constant funding to maintain operations."
+  },
+  {
+    "id": "3",
+    "name": "Rdio",
+    "market": "Music Streaming",
+    "revenue": "$125M raised",
+    "duration": "6 years",
+    "failure_reasons": [
+      "Couldn't compete with Spotify's growth",
+      "High licensing costs",
+      "Limited international expansion",
+      "Lack of differentiation in saturated market"
+    ],
+    "lessons_learned": [
+      "Being first to market doesn't guarantee success",
+      "Licensing costs can sink content businesses",
+      "International expansion is crucial for scale",
+      "Differentiation is key in competitive markets"
+    ],
+    "tags": [
+      "Competition",
+      "Licensing",
+      "International",
+      "Differentiation"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://techcrunch.com/2015/11/17/rdio-shuts-down/",
+    "is_premium": true,
+    "short_description": "Music streaming service that pioneered social features but lost to Spotify's aggressive growth",
+    "detailed_summary": "Rdio was one of the early music streaming services that competed directly with Spotify. Despite having innovative social features and a clean interface, the company couldn't keep up with Spotify's rapid user acquisition and international expansion, ultimately selling its assets to Pandora in 2015."
+  },
+  {
+    "id": "4",
+    "name": "Everpix",
+    "market": "Photo Management",
+    "revenue": "$2.3M raised",
+    "duration": "3 years",
+    "failure_reasons": [
+      "Couldn't find sustainable monetization model",
+      "High server costs for photo storage",
+      "Market dominated by free alternatives",
+      "Poor marketing and user acquisition"
+    ],
+    "lessons_learned": [
+      "Free alternatives make monetization extremely difficult",
+      "Infrastructure costs can grow faster than revenue",
+      "Marketing is as important as product development",
+      "Timing and market conditions matter enormously"
+    ],
+    "tags": [
+      "Monetization",
+      "Infrastructure Costs",
+      "Marketing",
+      "Competition"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://failory.com/cemetery/everpix",
+    "is_premium": false,
+    "short_description": "Intelligent photo management service that couldn't compete with free alternatives from tech giants",
+    "detailed_summary": "Everpix was a photo management service that used AI to organize and surface the best photos from users' collections. Despite having superior technology and user experience, the company couldn't compete with free alternatives from Google, Apple, and other tech giants, and struggled to find a sustainable monetization model."
+  },
+  {
+    "id": "5",
+    "name": "Zirtual",
+    "market": "Virtual Assistants",
+    "revenue": "$5.5M raised",
+    "duration": "4 years",
+    "failure_reasons": [
+      "Misclassified workers as contractors",
+      "Sudden shutdown due to legal compliance",
+      "Underestimated costs of employee classification",
+      "Poor financial planning and cash management"
+    ],
+    "lessons_learned": [
+      "Worker classification laws are complex and critical",
+      "Legal compliance should be planned from day one",
+      "Financial planning must account for regulatory changes",
+      "Sudden shutdowns destroy customer trust permanently"
+    ],
+    "tags": [
+      "Legal Compliance",
+      "Worker Classification",
+      "Financial Planning",
+      "Trust"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://failory.com/cemetery/zirtual",
+    "is_premium": true,
+    "short_description": "Virtual assistant service that shut down overnight due to worker misclassification issues",
+    "detailed_summary": "Zirtual provided virtual assistant services by connecting clients with remote workers. The company was forced to shut down suddenly in 2015 when they realized they had misclassified their workers as independent contractors rather than employees, creating significant legal and financial liabilities."
+  },
+  {
+    "id": "6",
+    "name": "Yik Yak",
+    "market": "Social Media",
+    "revenue": "$73M raised",
+    "duration": "6 years",
+    "failure_reasons": [
+      "Struggled with content moderation at scale",
+      "Lost user engagement after removing anonymity",
+      "Couldn't monetize anonymous user base",
+      "Failed to expand beyond college campuses"
+    ],
+    "lessons_learned": [
+      "Content moderation is a product feature, not an afterthought",
+      "Core features that drive engagement shouldn't be removed lightly",
+      "Monetizing anonymous users is extremely challenging",
+      "Geographic expansion requires different strategies"
+    ],
+    "tags": [
+      "Content Moderation",
+      "User Engagement",
+      "Monetization",
+      "Geographic Expansion"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://techcrunch.com/2017/04/28/yik-yak-shuts-down/",
+    "is_premium": true,
+    "short_description": "Anonymous social app popular on college campuses that died after removing core anonymity features",
+    "detailed_summary": "Yik Yak was an anonymous social media app that allowed users to post and vote on messages within their local area. The app was hugely popular on college campuses but struggled with content moderation issues and ultimately lost its user base after removing anonymity features in an attempt to improve safety."
+  },
+  {
+    "id": "7",
+    "name": "Sprig",
+    "market": "Food Delivery",
+    "revenue": "$56M raised",
+    "duration": "4 years",
+    "failure_reasons": [
+      "Unsustainable unit economics",
+      "High operational complexity",
+      "Competition from established players",
+      "Couldn't achieve sufficient scale"
+    ],
+    "lessons_learned": [
+      "Unit economics must be proven before scaling operations",
+      "Operational complexity increases costs exponentially",
+      "Competing with established players requires significant advantages",
+      "Food delivery requires massive scale to be profitable"
+    ],
+    "tags": [
+      "Unit Economics",
+      "Operations",
+      "Competition",
+      "Scale"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://failory.com/cemetery/sprig",
+    "is_premium": true,
+    "short_description": "Healthy food delivery service that burned through $56M due to unsustainable unit economics",
+    "detailed_summary": "Sprig delivered healthy, chef-prepared meals on demand in major cities. Despite strong user demand and significant funding, the company couldn't achieve sustainable unit economics due to high food costs, delivery expenses, and operational complexity."
+  },
+  {
+    "id": "8",
+    "name": "Shyp",
+    "market": "Shipping/Logistics",
+    "revenue": "$62M raised",
+    "duration": "5 years",
+    "failure_reasons": [
+      "Expanded too quickly without proving unit economics",
+      "High operational costs",
+      "Couldn't differentiate from traditional shipping",
+      "Failed to achieve network effects"
+    ],
+    "lessons_learned": [
+      "Prove unit economics in one market before expanding",
+      "Operations-heavy businesses need careful cost management",
+      "Convenience alone isn't always worth premium pricing",
+      "Network effects don't automatically emerge from logistics businesses"
+    ],
+    "tags": [
+      "Expansion",
+      "Unit Economics",
+      "Operations",
+      "Network Effects"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://techcrunch.com/2018/03/27/on-demand-shipping-startup-shyp-is-shutting-down/",
+    "is_premium": true,
+    "short_description": "On-demand shipping service that expanded too fast without sustainable economics",
+    "detailed_summary": "Shyp offered on-demand package pickup and shipping services, handling packaging and carrier selection for customers. The company expanded rapidly to multiple cities but struggled with high operational costs and couldn't prove sustainable unit economics, leading to shutdown in 2018."
+  },
+  {
+    "id": "9",
+    "name": "Beepi",
+    "market": "Used Car Sales",
+    "revenue": "$149M raised",
+    "duration": "4 years",
+    "failure_reasons": [
+      "Extremely high customer acquisition costs",
+      "Complex logistics and inventory management",
+      "Couldn't achieve sustainable margins",
+      "Underestimated traditional dealer advantages"
+    ],
+    "lessons_learned": [
+      "Customer acquisition costs must be sustainable long-term",
+      "Physical inventory businesses are capital intensive",
+      "Margins matter more than growth in asset-heavy businesses",
+      "Disrupting established industries requires significant advantages"
+    ],
+    "tags": [
+      "Customer Acquisition",
+      "Inventory",
+      "Margins",
+      "Industry Disruption"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://failory.com/cemetery/beepi",
+    "is_premium": true,
+    "short_description": "Used car marketplace that raised $149M but couldn't overcome high acquisition costs and logistics",
+    "detailed_summary": "Beepi was an online marketplace for buying and selling used cars, offering inspection, photography, and transaction services. Despite massive funding, the company struggled with extremely high customer acquisition costs and complex logistics around car storage and transportation."
+  },
+  {
+    "id": "10",
+    "name": "Vine",
+    "market": "Social Media/Video",
+    "revenue": "Acquired by Twitter for $30M",
+    "duration": "4 years",
+    "failure_reasons": [
+      "Failed to monetize creators effectively",
+      "Lost top creators to competing platforms",
+      "Couldn't compete with Instagram and YouTube",
+      "Lack of investment in creator tools and features"
+    ],
+    "lessons_learned": [
+      "Creator retention is crucial for content platforms",
+      "Monetization tools must benefit creators, not just platforms",
+      "Feature development must keep pace with competition",
+      "Platform loyalty requires ongoing investment in community"
+    ],
+    "tags": [
+      "Creator Economy",
+      "Monetization",
+      "Competition",
+      "Platform Development"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://techcrunch.com/2016/10/27/twitter-officially-shuts-down-vine/",
+    "is_premium": true,
+    "short_description": "Short-form video platform that lost creators to better-monetized competitors",
+    "detailed_summary": "Vine was a short-form video platform that became culturally significant but failed to retain top creators who moved to platforms offering better monetization. Twitter shut down Vine in 2017 after failing to compete with Instagram and YouTube's creator-focused features."
+  },
+  {
+    "id": "11",
+    "name": "Washio",
+    "market": "Laundry Services",
+    "revenue": "$16.5M raised",
+    "duration": "5 years",
+    "failure_reasons": [
+      "High operational costs and complexity",
+      "Difficult to achieve profit margins",
+      "Limited scalability due to logistics",
+      "Couldn't differentiate from existing services"
+    ],
+    "lessons_learned": [
+      "Service businesses with high touch points are difficult to scale",
+      "Logistics costs can overwhelm revenue in delivery businesses",
+      "Differentiation is crucial in commoditized services",
+      "Operational efficiency must be built into the business model"
+    ],
+    "tags": [
+      "Operations",
+      "Scalability",
+      "Margins",
+      "Differentiation"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://failory.com/cemetery/washio",
+    "is_premium": true,
+    "short_description": "On-demand laundry service that couldn't overcome operational complexity and costs",
+    "detailed_summary": "Washio provided on-demand laundry and dry cleaning pickup and delivery services. The company struggled with high operational costs, complex logistics, and difficulty achieving sustainable profit margins in a competitive market."
+  },
+  {
+    "id": "12",
+    "name": "Secret",
+    "market": "Anonymous Social Media",
+    "revenue": "$35M raised",
+    "duration": "2 years",
+    "failure_reasons": [
+      "Toxic content and cyberbullying issues",
+      "Couldn't solve content moderation at scale",
+      "Failed to build sustainable community",
+      "Negative impact on mental health"
+    ],
+    "lessons_learned": [
+      "Anonymity can enable harmful behavior",
+      "Content moderation strategy must be planned from launch",
+      "Community health is a core product responsibility",
+      "Some business models conflict with user wellbeing"
+    ],
+    "tags": [
+      "Content Moderation",
+      "Community Health",
+      "Mental Health",
+      "Anonymity"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://medium.com/@davidbyttow/secret-c7b9e82f1d6",
+    "is_premium": true,
+    "short_description": "Anonymous sharing app shut down by founder due to cyberbullying and mental health concerns",
+    "detailed_summary": "Secret was an anonymous social media app that allowed users to share secrets and gossip with their social networks. The app was shut down by its founder after 2 years due to concerns about cyberbullying, mental health impacts, and inability to moderate harmful content effectively."
+  },
+  {
+    "id": "13",
+    "name": "Joust",
+    "market": "Legal Services",
+    "revenue": "$2.3M raised",
+    "duration": "3 years",
+    "failure_reasons": [
+      "Couldn't acquire enough lawyers or clients",
+      "Two-sided marketplace chicken-and-egg problem",
+      "High customer acquisition costs",
+      "Regulatory challenges in legal industry"
+    ],
+    "lessons_learned": [
+      "Two-sided marketplaces require solving supply and demand simultaneously",
+      "Highly regulated industries present unique challenges",
+      "Customer acquisition costs can be prohibitive for low-frequency services",
+      "Network effects are essential but difficult to achieve"
+    ],
+    "tags": [
+      "Two-Sided Marketplace",
+      "Regulation",
+      "Customer Acquisition",
+      "Network Effects"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://www.indiehackers.com/post/why-my-startup-joust-failed-89c8f3a5ba",
+    "is_premium": true,
+    "short_description": "Legal services marketplace that couldn't solve the two-sided marketplace problem",
+    "detailed_summary": "Joust was a marketplace connecting clients with lawyers for legal services. The platform struggled with the classic two-sided marketplace problem of acquiring both supply (lawyers) and demand (clients) simultaneously, while also navigating regulatory challenges in the legal industry."
+  },
+  {
+    "id": "14",
+    "name": "Haiku Deck",
+    "market": "Presentation Software",
+    "revenue": "$4.3M raised",
+    "duration": "8 years",
+    "failure_reasons": [
+      "Couldn't compete with PowerPoint and Google Slides",
+      "Limited monetization options",
+      "Niche market wasn't large enough",
+      "Failed to achieve viral growth"
+    ],
+    "lessons_learned": [
+      "Competing with established tools requires significant advantages",
+      "Niche markets may not support venture-scale businesses",
+      "Monetization strategy must be built into product design",
+      "Viral growth cannot be forced or predicted"
+    ],
+    "tags": [
+      "Competition",
+      "Market Size",
+      "Monetization",
+      "Viral Growth"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://blog.haikudeck.com/haiku-deck-the-next-chapter/",
+    "is_premium": true,
+    "short_description": "Beautiful presentation software that couldn't compete with Microsoft and Google's offerings",
+    "detailed_summary": "Haiku Deck was a presentation software focused on creating beautiful, simple presentations with high-quality images. Despite a loyal user base and clean design, the company couldn't compete with free alternatives from Microsoft and Google, and struggled to find sustainable monetization."
+  },
+  {
+    "id": "15",
+    "name": "Grockit",
+    "market": "Online Education",
+    "revenue": "$25M raised",
+    "duration": "6 years",
+    "failure_reasons": [
+      "Pivoted too many times without finding product-market fit",
+      "Competitive market with well-funded players",
+      "Couldn't scale social learning effectively",
+      "High customer acquisition costs"
+    ],
+    "lessons_learned": [
+      "Frequent pivoting can waste resources and confuse users",
+      "Social features don't automatically improve learning outcomes",
+      "Education markets require long sales cycles and patience",
+      "Product-market fit should be achieved before major scaling"
+    ],
+    "tags": [
+      "Pivoting",
+      "Product-Market Fit",
+      "Social Learning",
+      "Customer Acquisition"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://failory.com/cemetery/grockit",
+    "is_premium": true,
+    "short_description": "Social learning platform that pivoted multiple times without finding sustainable model",
+    "detailed_summary": "Grockit was an online learning platform that used social and gaming elements to help students prepare for standardized tests. The company went through multiple pivots and business model changes but never achieved sustainable product-market fit or competitive advantage."
+  },
+  {
+    "id": "16",
+    "name": "Turntable.fm",
+    "market": "Music/Social Media",
+    "revenue": "$7.2M raised",
+    "duration": "3 years",
+    "failure_reasons": [
+      "Couldn't secure music licensing deals",
+      "Limited to US market due to licensing restrictions",
+      "Failed to monetize engaged user base",
+      "Couldn't compete with Spotify and Pandora"
+    ],
+    "lessons_learned": [
+      "Licensing can be a critical bottleneck for content businesses",
+      "Geographic restrictions limit growth potential",
+      "Engagement doesn't automatically translate to revenue",
+      "Innovative features alone don't guarantee success"
+    ],
+    "tags": [
+      "Licensing",
+      "Geographic Restrictions",
+      "Monetization",
+      "Competition"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://techcrunch.com/2013/12/02/turntable-fm-pivots-to-turntable-live-a-platform-for-artists-to-perform-interactive-concerts/",
+    "is_premium": true,
+    "short_description": "Social music platform that couldn't overcome licensing restrictions and monetization challenges",
+    "detailed_summary": "Turntable.fm was a social music platform where users could DJ for each other in virtual rooms. Despite strong user engagement and innovative features, the company struggled with music licensing restrictions, geographic limitations, and inability to monetize its user base effectively."
+  },
+  {
+    "id": "17",
+    "name": "Overhear",
+    "market": "Audio Social Media",
+    "revenue": "$1.8M raised",
+    "duration": "2 years",
+    "failure_reasons": [
+      "Couldn't achieve critical mass of users",
+      "Limited content creation and discovery tools",
+      "Timing was too early for audio content",
+      "Couldn't differentiate from existing platforms"
+    ],
+    "lessons_learned": [
+      "Critical mass is essential for social platforms",
+      "Timing matters enormously for new content formats",
+      "Creator tools are crucial for content platforms",
+      "Network effects require careful nurturing"
+    ],
+    "tags": [
+      "Critical Mass",
+      "Timing",
+      "Creator Tools",
+      "Network Effects"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://www.indiehackers.com/post/why-overhear-failed-lessons-from-a-failed-audio-startup-b1c2e3f4d5",
+    "is_premium": true,
+    "short_description": "Audio social platform that was too early to market and couldn't build critical mass",
+    "detailed_summary": "Overhear was an audio social platform that allowed users to share and discover voice messages and audio content. The platform launched before the audio content boom but couldn't achieve the critical mass needed for network effects and eventually shut down."
+  },
+  {
+    "id": "18",
+    "name": "Curated.by",
+    "market": "Content Curation",
+    "revenue": "$2.5M raised",
+    "duration": "4 years",
+    "failure_reasons": [
+      "Couldn't compete with algorithmic curation",
+      "Limited monetization options for curators",
+      "Market moved toward automated solutions",
+      "Failed to build sustainable curator economy"
+    ],
+    "lessons_learned": [
+      "Human curation must provide clear advantages over algorithms",
+      "Creator economies need sustainable monetization",
+      "Market trends can make business models obsolete",
+      "Differentiation becomes harder as technology advances"
+    ],
+    "tags": [
+      "Curation",
+      "Creator Economy",
+      "Algorithms",
+      "Market Trends"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://medium.com/@pud/why-i-shut-down-curated-by-8d7e9b8f7c9a",
+    "is_premium": true,
+    "short_description": "Human curation platform that couldn't compete with algorithmic content discovery",
+    "detailed_summary": "Curated.by was a platform where experts could curate content collections for specific topics and audiences. The service struggled to compete with algorithmic curation from major platforms and couldn't build a sustainable economy for human curators."
+  },
+  {
+    "id": "19",
+    "name": "Karma",
+    "market": "Gift Cards/Payments",
+    "revenue": "$12M raised",
+    "duration": "3 years",
+    "failure_reasons": [
+      "Complex business model with low margins",
+      "High transaction costs ate into profits",
+      "Couldn't achieve sufficient scale",
+      "Regulatory challenges in payments industry"
+    ],
+    "lessons_learned": [
+      "Payment businesses require massive scale to be profitable",
+      "Regulatory compliance is expensive and complex",
+      "Transaction costs can destroy unit economics",
+      "Simple business models often outperform complex ones"
+    ],
+    "tags": [
+      "Payments",
+      "Regulation",
+      "Scale",
+      "Business Model"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://failory.com/cemetery/karma",
+    "is_premium": true,
+    "short_description": "Social gift card platform that couldn't overcome payment industry challenges and low margins",
+    "detailed_summary": "Karma was a social gifting platform that allowed users to send gift cards through social media. The company struggled with complex payment processing, regulatory challenges, and low margins that prevented sustainable growth despite user interest in the concept."
+  },
+  {
+    "id": "20",
+    "name": "Parse",
+    "market": "Backend-as-a-Service",
+    "revenue": "Acquired by Facebook for $85M",
+    "duration": "5 years",
+    "failure_reasons": [
+      "Didn't fit Facebook's strategic priorities",
+      "High infrastructure costs",
+      "Competitive pressure from cloud providers",
+      "Difficult to monetize developer tools"
+    ],
+    "lessons_learned": [
+      "Acquisition doesn't guarantee product survival",
+      "Strategic fit matters more than technology quality",
+      "Developer tools require different monetization strategies",
+      "Infrastructure costs can become prohibitive at scale"
+    ],
+    "tags": [
+      "Acquisition",
+      "Strategic Fit",
+      "Developer Tools",
+      "Infrastructure"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://blog.parseplatform.org/announcements/moving-on/",
+    "is_premium": true,
+    "short_description": "Backend-as-a-service platform shut down by Facebook despite strong developer adoption",
+    "detailed_summary": "Parse was a backend-as-a-service platform that provided APIs and infrastructure for mobile app developers. Despite being acquired by Facebook and having strong developer adoption, the service was shut down when it no longer aligned with Facebook's strategic priorities."
+  },
+  {
+    "id": "21",
+    "name": "Flogg",
+    "market": "Social Commerce",
+    "revenue": "$3.2M raised",
+    "duration": "3 years",
+    "failure_reasons": [
+      "Couldn't achieve critical mass of buyers and sellers",
+      "Trust and safety issues in peer-to-peer transactions",
+      "Competition from established platforms",
+      "High fraud and dispute resolution costs"
+    ],
+    "lessons_learned": [
+      "Trust is fundamental to commerce platforms",
+      "Two-sided marketplaces need both supply and demand",
+      "Fraud prevention is expensive but essential",
+      "Established platforms have significant advantages"
+    ],
+    "tags": [
+      "Trust",
+      "Fraud",
+      "Two-Sided Marketplace",
+      "Competition"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://www.indiehackers.com/post/lessons-from-flogg-why-our-social-commerce-startup-failed-a5f6g7h8i9",
+    "is_premium": true,
+    "short_description": "Social commerce platform that couldn't solve trust and safety issues at scale",
+    "detailed_summary": "Flogg was a social commerce platform that allowed users to buy and sell items through social media integration. The platform struggled with trust and safety issues, fraud prevention costs, and couldn't achieve the critical mass needed to compete with established marketplaces."
+  },
+  {
+    "id": "22",
+    "name": "Tutorspree",
+    "market": "Education/Tutoring",
+    "revenue": "$2.1M raised",
+    "duration": "4 years",
+    "failure_reasons": [
+      "Low-frequency, high-touch service model",
+      "Difficulty scaling personal relationships",
+      "High customer acquisition costs",
+      "Seasonal demand fluctuations"
+    ],
+    "lessons_learned": [
+      "High-touch services are difficult to scale efficiently",
+      "Seasonal businesses need strategies for off-peak periods",
+      "Personal relationships don't scale through technology alone",
+      "Unit economics must account for service delivery costs"
+    ],
+    "tags": [
+      "Service Model",
+      "Scaling",
+      "Seasonality",
+      "Customer Acquisition"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://www.fastcompany.com/3028159/tutorspree-shuts-down-but-founders-double-down-on-changing-education",
+    "is_premium": true,
+    "short_description": "Tutoring marketplace that couldn't scale high-touch educational services profitably",
+    "detailed_summary": "Tutorspree was a marketplace connecting students with tutors for personalized learning. The platform struggled with the high-touch nature of educational services, seasonal demand fluctuations, and difficulty scaling personal relationships between tutors and students."
+  },
+  {
+    "id": "23",
+    "name": "Eventloot",
+    "market": "Event Planning SaaS",
+    "revenue": "Bootstrapped",
+    "duration": "3 years",
+    "failure_reasons": [
+      "No product-market fit",
+      "Planners didn’t perceive sufficient value",
+      "Zero traction leading to poor revenue"
+    ],
+    "lessons_learned": [
+      "Validate real customer pain before building",
+      "Don’t invest upfront in growth before PMF",
+      "Self-funded ventures need tight focus"
+    ],
+    "tags": [
+      "No-Market-Need"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://www.thesaastalk.com/the-stories-of-15-saas-startups-and-their-downfall-2/",
+    "is_premium": false,
+    "short_description": "Self-funded event-planning SaaS that failed to gain traction with professional planners",
+    "detailed_summary": "Eventloot launched as a tool for wedding/event planners in 2014, but organizers didn’t find enough value to adopt or pay for it. Without any external funding, it couldn’t pivot or scale, ultimately shutting down in 2017."
+  },
+  {
+    "id": "24",
+    "name": "Springpad",
+    "market": "Note-Taking / Productivity",
+    "revenue": "Undisclosed funding",
+    "duration": "4 years",
+    "failure_reasons": [
+      "Inability to monetize freemium model",
+      "Overpowered by competition (Evernote)",
+      "Failed to convert free users to paid"
+    ],
+    "lessons_learned": [
+      "Freemium models require strong conversion strategy",
+      "Being first doesn’t guarantee lock-in",
+      "Competitive markets demand differentiation"
+    ],
+    "tags": [
+      "Monetization",
+      "Competition"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://www.thesaastalk.com/the-stories-of-15-saas-startups-and-their-downfall-2/",
+    "is_premium": false,
+    "short_description": "Note-taking SaaS that couldn’t monetize amid stiff competition",
+    "detailed_summary": "Springpad launched around 2010 as a promising note-taking app but struggled to charge users. With user growth insufficient to justify revenue, and Evernote dominating, it shut down in 2014."
+  },
+  {
+    "id": "25",
+    "name": "Groove",
+    "market": "Helpdesk / Customer Support",
+    "revenue": "Bootstrapped",
+    "duration": "4 years",
+    "failure_reasons": [
+      "High competition (Zendesk, Freshdesk)",
+      "Scaling issues",
+      "Low monetization and growth"
+    ],
+    "lessons_learned": [
+      "Even well-reviewed products need aggressive growth",
+      "Monetization must be intentional from the start",
+      "Strong competitors require quick wins"
+    ],
+    "tags": [
+      "Competition",
+      "Scaling"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://www.thesaastalk.com/the-stories-of-15-saas-startups-and-their-downfall-2/",
+    "is_premium": false,
+    "short_description": "Helpdesk SaaS that couldn’t scale or monetize effectively under pressure from larger rivals",
+    "detailed_summary": "Groove launched a simple, user-friendly helpdesk tool in 2011, but couldn’t gain traction fast enough. Revenue stagnated, rival platforms dominated, and it pivoted/shut down in 2015."
+  },
+  {
+    "id": "26",
+    "name": "Zirtual",
+    "market": "Virtual Assistant Platform",
+    "revenue": "$2M ARR",
+    "duration": "4 years",
+    "failure_reasons": [
+      "Unsustainable unit economics",
+      "High operational overhead",
+      "Burning cash per client"
+    ],
+    "lessons_learned": [
+      "Unit economics must be viable from day one",
+      "Quality can't be sacrificed for speed",
+      "Pricing must account for all costs"
+    ],
+    "tags": [
+      "Unit Economics",
+      "Operations",
+      "Pricing",
+      "Scaling"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://techcrunch.com/2015/08/10/zirtual-shuts-down/",
+    "is_premium": false,
+    "short_description": "Monthly virtual assistant service that lost money on each customer",
+    "detailed_summary": "Zirtual offered flat-fee access to assistants, but paid them more than it charged once overhead was included. With $2M ARR, it shut down abruptly in 2015 when cash dried up."
+  },
+  {
+    "id": "27",
+    "name": "Homejoy",
+    "market": "Home Cleaning Marketplace",
+    "revenue": "$40M raised",
+    "duration": "3 years",
+    "failure_reasons": [
+      "High customer acquisition costs",
+      "Low retention and churn",
+      "Legal battles over contractor classification",
+      "Operational inefficiencies"
+    ],
+    "lessons_learned": [
+      "LTV must significantly exceed CAC",
+      "Marketplace balance is essential",
+      "Legal compliance can make or break the model",
+      "Scaling operations without consistency is risky"
+    ],
+    "tags": [
+      "Customer Acquisition",
+      "Retention",
+      "Legal Issues",
+      "Operations"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://www.wired.com/2015/10/why-homejoy-failed",
+    "is_premium": true,
+    "short_description": "On-demand cleaning startup that collapsed under economics and legal pressure",
+    "detailed_summary": "Homejoy scaled via deep discounts, but most customers didn’t return. High CAC, poor retention, legal classification issues with contractors, and inconsistent service quality forced closure in 2015."
+  },
+  {
+    "id": "28",
+    "name": "Quibi",
+    "market": "Short-Form Video Streaming",
+    "revenue": "$1.75B raised",
+    "duration": "2 years",
+    "failure_reasons": [
+      "Poor market timing (pandemic)",
+      "Uncompetitive subscription model",
+      "Mobile-only limitations",
+      "Weak product-market fit"
+    ],
+    "lessons_learned": [
+      "Market fit is more than funding",
+      "Platform choice must align with user behavior",
+      "Content and pricing must match usage patterns"
+    ],
+    "tags": [
+      "Product-Market Fit",
+      "Timing",
+      "Monetization"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://userguiding.com/blog/worst-saas-failures",
+    "is_premium": false,
+    "short_description": "Mobile-first video service that failed despite massive funding",
+    "detailed_summary": "Quibi raised $1.75B for short mobile-only streaming, but launched during lockdowns when users preferred other platforms. Its subscription model and content strategy misfired, leading to shutdown in late 2020."
+  },
+  {
+    "id": "29",
+    "name": "Atrium",
+    "market": "Legal Services + Tech",
+    "revenue": "$75M raised",
+    "duration": "3 years",
+    "failure_reasons": [
+      "Misaligned tech and legal service model",
+      "Poor product-market fit",
+      "Financial mismanagement"
+    ],
+    "lessons_learned": [
+      "Domain expertise is vital in complex industries",
+      "Heavy funding doesn't fix misfit models",
+      "Tech augmenting services must prove ROI"
+    ],
+    "tags": [
+      "Product-Market Fit",
+      "Financial Management",
+      "Complex Industry"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://userguiding.com/blog/worst-saas-failures",
+    "is_premium": false,
+    "short_description": "Legal-tech hybrid that faltered at the intersection of law and software",
+    "detailed_summary": "Atrium tried combining legal services with software, backed by $75M. Clients preferred traditional firms over its tech-led approach, and it collapsed in March 2020."
+  },
+  {
+    "id": "30",
+    "name": "ScaleFactor",
+    "market": "Accounting Automation SaaS",
+    "revenue": "$27M raised",
+    "duration": "4 years",
+    "failure_reasons": [
+      "Unreliable technology",
+      "Rapid scaling with operational issues",
+      "Customer churn",
+      "Dependency on VC funding"
+    ],
+    "lessons_learned": [
+      "Tech maturity must precede scaling",
+      "Finance tools must be reliable",
+      "Growth must be sustainable"
+    ],
+    "tags": [
+      "Tech Reliability",
+      "Scaling",
+      "Financial Management"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://userguiding.com/blog/worst-saas-failures",
+    "is_premium": false,
+    "short_description": "AI accounting startup undone by bugs and churn",
+    "detailed_summary": "ScaleFactor aimed to automate SME accounting but suffered from integration issues and buggy software. Despite raising $27M, it collapsed in 2020 due to trust failures and scaling strain."
+  },
+  {
+    "id": "31",
+    "name": "LightSail Energy",
+    "market": "Energy Storage SaaS/Hardware",
+    "revenue": "$70M raised",
+    "duration": "6 years",
+    "failure_reasons": [
+      "Emergence of superior alternatives (Li-ion)",
+      "Commercial tech misalignment",
+      "Cash burn without product-market demand"
+    ],
+    "lessons_learned": [
+      "Watch adjacent tech trends closely",
+      "Hardware requires different pace to SaaS",
+      "Pivot or perish when market shifts"
+    ],
+    "tags": [
+      "Technology Shift",
+      "Hardware Complexity",
+      "Market Timing"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://en.wikipedia.org/wiki/LightSail_Energy",
+    "is_premium": false,
+    "short_description": "Compressed-air energy storage company outpaced by lithium-ion",
+    "detailed_summary": "LightSail raised $70M to commercialize compressed air energy storage. By 2017 Li-ion became more viable and cheaper. The firm 'hibernated' then shut down in 2018."
+  },
+  {
+    "id": "32",
+    "name": "Webvan",
+    "market": "Online Grocery Delivery",
+    "revenue": "$800M raised + IPO",
+    "duration": "5 years",
+    "failure_reasons": [
+      "Extensive fixed costs",
+      "Aggressive multi-city expansion",
+      "Unproven unit economics"
+    ],
+    "lessons_learned": [
+      "Test model before scaling infrastructure",
+      "Build-demand must precede warehouses",
+      "High fixed costs increase collapse risk"
+    ],
+    "tags": [
+      "Unit Economics",
+      "Over‑expansion",
+      "Logistics"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://en.wikipedia.org/wiki/Webvan",
+    "is_premium": false,
+    "short_description": "Online grocery service that burned $800M before collapsing",
+    "detailed_summary": "Webvan built warehouses and delivery fleets across multiple cities without proven demand. Its expenses far outpaced revenue, and it folded in 2001 amidst the dot-com crash."
+  }
+]
