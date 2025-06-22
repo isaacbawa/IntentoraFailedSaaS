@@ -29,7 +29,7 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-100">
+    <header className="sticky top-0 bg-white shadow-sm border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -38,14 +38,14 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-2">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
                 className={`px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center ${isActive(item.href)
-                    ? 'text-red-600 border-b-2 border-red-600'
-                    : 'text-gray-700 hover:text-red-600'
+                  ? 'text-red-600 border-b-2 border-red-600'
+                  : 'text-gray-700 hover:text-red-600'
                   }`}
               >
                 {item.icon && <item.icon className="h-4 w-4 mr-1" />}
@@ -59,9 +59,6 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-4">
             {isSignedIn ? (
               <div className="flex items-center space-x-3">
-                <span className="text-sm text-gray-600">
-                  Welcome, {user.firstName || user.emailAddresses[0].emailAddress.split('@')[0]}
-                </span>
                 <UserButton afterSignOutUrl="/" />
               </div>
             ) : (
@@ -102,8 +99,8 @@ const Header = () => {
                   key={item.name}
                   to={item.href}
                   className={`px-3 py-2 text-sm font-medium flex items-center ${isActive(item.href)
-                      ? 'text-red-600'
-                      : 'text-gray-700 hover:text-red-600'
+                    ? 'text-red-600'
+                    : 'text-gray-700 hover:text-red-600'
                     }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
