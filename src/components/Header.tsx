@@ -107,21 +107,33 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-100">
             <div className="flex flex-col space-y-4">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`px-3 py-2 text-sm font-medium flex items-center ${isActive(item.href)
-                    ? 'text-red-600'
-                    : 'text-gray-700 hover:text-red-600'
-                    }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.icon && <item.icon className="h-4 w-4 mr-1" />}
-                  {item.name === 'Analytics' && <BarChart3 className="h-4 w-4 mr-1" />}
-                  {item.name}
-                </Link>
-              ))}
+              {navigation.map((item) => {
+                const isShareYourStory = item.name === 'Share Your Story';
+
+                const baseClasses = 'px-3 py-2 text-sm font-medium flex items-center transition-colors duration-200';
+
+                const activeClass = isActive(item.href)
+                  ? isShareYourStory
+                    ? 'text-green-700 bg-green-100 border border-green-600 rounded-md'
+                    : 'text-red-600'
+                  : isShareYourStory
+                    ? 'text-green-700 bg-green-50 border border-green-500 rounded-md hover:bg-green-100'
+                    : 'text-gray-700 hover:text-red-600';
+
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`${baseClasses} ${activeClass}`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.icon && <item.icon className="h-4 w-4 mr-1" />}
+                    {item.name === 'Analytics' && <BarChart3 className="h-4 w-4 mr-1" />}
+                    {item.name}
+                  </Link>
+                );
+              })}
+
               <div className="pt-4 border-t border-gray-100">
                 {isSignedIn ? (
                   <div className="flex items-center px-3 py-2">
