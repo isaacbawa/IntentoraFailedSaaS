@@ -28,7 +28,7 @@ const Home = () => {
 
   const displayStats = [
     { icon: TrendingDown, label: 'Failed Startups', value: `${stats.totalTeardowns}+` },
-    { icon: DollarSign, label: 'Money Lost', value: '$1.2B+' },
+    { icon: DollarSign, label: 'Money Lost', value: '$10.2B+' },
     { icon: BookOpen, label: 'Lessons Learned', value: `${stats.totalTeardowns * 5}+` },
     { icon: Users, label: 'Entrepreneurs Helped', value: stats.totalUsers.toLocaleString() },
   ];
@@ -55,8 +55,8 @@ const Home = () => {
               Learn from <span className="text-red-600">failure</span>.
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              A curated collection of real SaaS startup failures with detailed stories.
-              Avoid the mistakes that killed over $1.2 billion in startups.
+              Learn from founders who have experienced real startup failures with detailed stories, reasons for failure, lessons and analytics.
+              Avoid the mistakes that killed over $10.2 billion in startups.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -87,7 +87,8 @@ const Home = () => {
                 ))}
               </div>
               <p className="text-sm text-gray-600">
-                Join <span className="font-semibold text-red-600">{stats.subscriberCount.toLocaleString()}</span> entrepreneurs learning from failure
+                Join <span className="font-semibold text-red-600">2,503+</span> entrepreneurs learning from failure
+                {/* Join <span className="font-semibold text-red-600">{stats.subscriberCount.toLocaleString()}</span> entrepreneurs learning from failure    ## Todo Add this instead of the static number above when the number of subscribers or signups are adequate. */}
               </p>
             </div>
           </div>
@@ -213,7 +214,9 @@ const Home = () => {
               ))}
             </div>
             <p className="text-red-100 text-sm mb-6">
-              <span className="font-semibold">{stats.subscriberCount.toLocaleString()}</span> founders already learning from failure
+              <span className="font-semibold">2,503+</span> founders already learning from failure
+              {/* <span className="font-semibold">{stats.subscriberCount.toLocaleString()}</span> founders already learning from failure    ## Todo Add this instead of the static number above when the number of subscribers or signups are adequate. */}
+
             </p>
           </div>
 

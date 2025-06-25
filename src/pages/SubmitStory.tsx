@@ -136,7 +136,7 @@ const SubmitStory = () => {
       failedStartup: 'TaskFlow',
       currentVenture: 'ProductivityPro',
       traffic: '2,847 visitors',
-      description: 'Shared how poor user onboarding killed his first SaaS'
+      description: 'Shared how poor user onboarding killed his first startup'
     },
     {
       founder: 'Maria Rodriguez',
@@ -571,7 +571,7 @@ const SubmitStory = () => {
                 onChange={(e) => handleInputChange('agreeToTerms', e.target.checked)}
               />
               <label htmlFor="agreeToTerms" className="ml-2 block text-sm text-gray-700">
-                I agree to have my story published on Intentora: Failed SaaS Postmortem and understand that
+                I agree to have my story published on Intentora: Failed Startup Postmortem and understand that
                 it will include a link to my current venture. I confirm this story is truthful
                 and I have the right to share it.
               </label>

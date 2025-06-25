@@ -15,7 +15,7 @@ const MonthlyReport = ({ analytics, month, year }: MonthlyReportProps) => {
     <div className="max-w-4xl mx-auto bg-white">
       {/* Header */}
       <div className="bg-gradient-to-r from-red-600 to-red-700 text-white p-8 text-center">
-        <h1 className="text-3xl font-bold mb-2">SaaS Graveyard Trends Report</h1>
+        <h1 className="text-3xl font-bold mb-2">Startup Failure Trends Report</h1>
         <p className="text-red-100 text-lg">{reportDate}</p>
         <p className="text-red-200 text-sm mt-2">
           Aggregated insights from {analytics.topFailureReasons.reduce((sum, reason) => sum + reason.count, 0)} documented failures
@@ -31,7 +31,7 @@ const MonthlyReport = ({ analytics, month, year }: MonthlyReportProps) => {
           </h2>
           <div className="bg-gray-50 rounded-lg p-6">
             <p className="text-gray-700 leading-relaxed">
-              This month's analysis reveals critical patterns in SaaS failures. The top failure reason remains
+              This month's analysis reveals critical patterns in startup failures. The top failure reason remains
               <strong> {analytics.topFailureReasons[0]?.reason}</strong>, affecting {analytics.topFailureReasons[0]?.percentage}%
               of documented cases. Startups in the {analytics.industryBreakdown[0]?.industry} sector continue to show
               the highest failure rates, while red flags like "Unsustainable Unit Economics\" correlate with
@@ -169,7 +169,7 @@ const MonthlyReport = ({ analytics, month, year }: MonthlyReportProps) => {
         <section className="border-t border-gray-200 pt-6">
           <div className="text-center text-gray-600">
             <p className="mb-2">
-              <strong>Failed SaaS Teardowns</strong> - Learn from $1B+ in documented failures
+              <strong>Failed Startup Teardowns</strong> - Learn from $10.2B+ in documented failures
             </p>
             <p className="text-sm">
               Report generated on {new Date().toLocaleDateString()} •

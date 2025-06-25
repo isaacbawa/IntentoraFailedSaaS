@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { SignInButton, SignUpButton, UserButton, useUser } from '@clerk/clerk-react';
 import { AlertTriangle, Menu, X, BarChart3, Plus } from 'lucide-react';
-import Logo from '../resources/Intentora.png';
+import Logo from '../resources/Intentora_failed_startup.png';
 
 
 const Header = () => {
@@ -59,6 +59,9 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-4">
             {isSignedIn ? (
               <div className="flex items-center space-x-3">
+                {/* <span className="text-sm text-gray-600">
+                  Welcome, {user.firstName || user.emailAddresses[0].emailAddress.split('@')[0]}
+                </span> */}
                 <UserButton afterSignOutUrl="/" />
               </div>
             ) : (

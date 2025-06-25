@@ -17,7 +17,7 @@ const FailureStories = () => {
 
     // Listen for storage changes to update data in real-time
     window.addEventListener('storage', refreshData);
-    
+
     // Also refresh on focus (in case data was changed in another tab)
     window.addEventListener('focus', refreshData);
 
@@ -40,11 +40,11 @@ const FailureStories = () => {
   const filteredTeardowns = useMemo(() => {
     let filtered = teardowns.filter(teardown => {
       const matchesSearch = teardown.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           teardown.market.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           teardown.short_description.toLowerCase().includes(searchTerm.toLowerCase());
-      
+        teardown.market.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        teardown.short_description.toLowerCase().includes(searchTerm.toLowerCase());
+
       const matchesTag = !selectedTag || teardown.tags.includes(selectedTag);
-      
+
       return matchesSearch && matchesTag;
     });
 
@@ -84,7 +84,7 @@ const FailureStories = () => {
             />
           </div>
         )}
-        
+
         <div className="p-6">
           <div className="flex items-start justify-between mb-4">
             <div className="flex-1">
@@ -109,7 +109,7 @@ const FailureStories = () => {
               <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
                 <TrendingDown className="h-4 w-4 text-red-500 mr-1" />
                 Why It Failed
-              </h4> 
+              </h4>
               <ul className="space-y-1">
                 {teardown.failure_reasons.slice(0, 2).map((reason, index) => (
                   <li key={index} className="text-sm text-gray-600">• {reason}</li>
@@ -119,7 +119,7 @@ const FailureStories = () => {
                 )}
               </ul>
             </div>
-            
+
             <div>
               <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
                 <DollarSign className="h-4 w-4 text-green-500 mr-1" />
@@ -162,7 +162,7 @@ const FailureStories = () => {
             Failure Stories
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Learn from {teardowns.length} real SaaS failures. Each story reveals the critical mistakes 
+            Learn from {teardowns.length} real startup failures. Each story reveals the critical mistakes
             that cost entrepreneurs millions.
           </p>
         </div>
@@ -243,7 +243,7 @@ const FailureStories = () => {
             Get Weekly Failure Insights
           </h2>
           <p className="text-red-100 mb-6 max-w-2xl mx-auto">
-            Don't just browse the stories. Get a detailed startup failure analysis delivered 
+            Don't just browse the stories. Get a detailed startup failure analysis delivered
             to your inbox every week. Learn from others' mistakes before you make them.
           </p>
           <Link
@@ -251,7 +251,8 @@ const FailureStories = () => {
             className="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
           >
             <Mail className="mr-2 h-5 w-5" />
-            Join {DataStore.getInstance().getStats().subscriberCount.toLocaleString()}+ Subscribers
+            Join 2,503+ Subscribers
+            {/* Join {DataStore.getInstance().getStats().subscriberCount.toLocaleString()}+ Subscribers ## Todo */}
           </Link>
         </div>
       </div>

@@ -47,7 +47,7 @@ const Newsletter = () => {
     {
       icon: Users,
       title: 'Exclusive Community',
-      description: `Join ${stats.subscriberCount.toLocaleString()}+ entrepreneurs learning from million-dollar mistakes`
+      description: `Join 2,503+ entrepreneurs learning from million-dollar mistakes`
     }
   ];
 
@@ -88,7 +88,7 @@ const Newsletter = () => {
   const testimonials = [
     {
       name: 'Sarah Chen',
-      role: 'SaaS Founder',
+      role: 'Startup Founder',
       content: 'This newsletter literally saved me from making a $75K pricing mistake. The Homejoy teardown was a wake-up call.',
       avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b766?w=64&h=64&fit=crop&crop=face&auto=format'
     },
@@ -116,10 +116,10 @@ const Newsletter = () => {
             The Failure Report
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
-            Every Tuesday, get the brutal truth behind one failed startup. Learn from 
+            Every Tuesday, get the brutal truth behind one failed startup. Learn from
             million-dollar mistakes without making them yourself.
           </p>
-          
+
           {/* Social Proof with Avatars */}
           <div className="flex flex-col items-center mb-8">
             <div className="flex -space-x-2 mb-3">
@@ -134,8 +134,10 @@ const Newsletter = () => {
             </div>
             <p className="text-gray-600 flex items-center">
               <Star className="h-4 w-4 text-yellow-400 mr-1" />
-              Join <span className="font-semibold text-red-600 mx-1">{stats.subscriberCount.toLocaleString()}</span> entrepreneurs • 
-              <span className="font-semibold ml-1">94% open rate</span>
+              Join <span className="font-semibold text-red-600 mx-1">2,503</span> entrepreneurs •
+              {/* Join <span className="font-semibold text-red-600 mx-1">{stats.subscriberCount.toLocaleString()}</span> entrepreneurs learning from failure    ## Todo Add this instead of the static number above when the number of subscribers or signups are adequate. */}
+
+              {/* <span className="font-semibold ml-1">94% open rate</span> */}
             </p>
           </div>
         </div>
@@ -151,7 +153,7 @@ const Newsletter = () => {
               </p>
               <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
                 <p className="text-red-800 text-sm">
-                  <strong>Pro tip:</strong> Add us to your contacts to ensure you never miss a teardown. 
+                  <strong>Pro tip:</strong> Add us to your contacts to ensure you never miss a teardown.
                   These insights could save you thousands.
                 </p>
               </div>
@@ -166,7 +168,7 @@ const Newsletter = () => {
                   Get weekly failure insights that could save you $50K+ in mistakes
                 </p>
               </div>
-              
+
               <div className="max-w-md mx-auto text-center">
                 {isSignedIn ? (
                   <div>
@@ -242,7 +244,7 @@ const Newsletter = () => {
             </h2>
             <p className="text-gray-600">Real feedback from entrepreneurs who avoided costly mistakes</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-white rounded-lg shadow-sm p-6">
@@ -274,9 +276,12 @@ const Newsletter = () => {
             Ready to Avoid Million-Dollar Mistakes?
           </h2>
           <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto">
-            Join {stats.subscriberCount.toLocaleString()}+ entrepreneurs who are building smarter by learning from others' failures.
+            Join 2,503+ entrepreneurs who are building smarter by learning from others' failures.
+            {/* Join <span className="font-semibold text-red-600 mx-1">{stats.subscriberCount.toLocaleString()}+</span> entrepreneurs who are building smarter by learning from others' failures.    ## Todo Add this instead of the static number above when the number of subscribers or signups are adequate. */}
+
+
           </p>
-          
+
           {/* Social Proof */}
           <div className="flex flex-col items-center mb-8">
             <div className="flex -space-x-2 mb-3">
@@ -290,8 +295,8 @@ const Newsletter = () => {
               ))}
             </div>
             <p className="text-red-100 text-sm">
-              <span className="font-semibold">94% open rate</span> • 
-              <span className="font-semibold ml-1">Zero spam</span> • 
+              {/* <span className="font-semibold">94% open rate</span> • */}
+              <span className="font-semibold ml-1">Zero spam</span> •
               <span className="font-semibold ml-1">Unsubscribe anytime</span>
             </p>
           </div>

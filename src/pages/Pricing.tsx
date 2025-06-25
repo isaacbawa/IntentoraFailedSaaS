@@ -56,7 +56,7 @@ const Pricing = ({ isClerkEnabled }: PricingProps) => {
   const testimonials = [
     {
       name: 'Sarah Chen',
-      role: 'SaaS Founder',
+      role: 'Startup Founder',
       content: 'These teardowns saved me from making a $50K pricing mistake. Worth every penny.',
       avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b766?w=64&h=64&fit=crop&crop=face'
     },

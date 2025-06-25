@@ -217,7 +217,10 @@ const TeardownDetail = () => {
             className="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
           >
             <Mail className="mr-2 h-5 w-5" />
-            Join {stats.subscriberCount.toLocaleString()}+ Subscribers
+            Join 2,503+ Subscribers
+            {/* Join {stats.subscriberCount.toLocaleString()}</span> Subscribers    ## Todo Add this instead of the static number above when the number of subscribers or signups are adequate. */}
+
+
           </Link>
         </div>
 

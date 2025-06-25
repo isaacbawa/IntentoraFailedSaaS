@@ -13,7 +13,7 @@ const FailureAnalyticsComponent = ({ analytics }: FailureAnalyticsProps) => {
       <div className="bg-white rounded-lg shadow-sm p-6">
         <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
           <TrendingDown className="h-6 w-6 text-red-500 mr-2" />
-          Top Reasons for SaaS Failures
+          Top Reasons for Startup Failures
         </h2>
         <div className="space-y-4">
           {analytics.topFailureReasons.map((reason, index) => (
@@ -28,8 +28,8 @@ const FailureAnalyticsComponent = ({ analytics }: FailureAnalyticsProps) => {
                 </div>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-                <div 
-                  className="bg-red-500 h-2 rounded-full" 
+                <div
+                  className="bg-red-500 h-2 rounded-full"
                   style={{ width: `${reason.percentage}%` }}
                 ></div>
               </div>
@@ -55,8 +55,8 @@ const FailureAnalyticsComponent = ({ analytics }: FailureAnalyticsProps) => {
                 <span className="text-gray-600 text-sm">{tech.count} failures</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div 
-                  className="bg-blue-500 h-2 rounded-full" 
+                <div
+                  className="bg-blue-500 h-2 rounded-full"
                   style={{ width: `${tech.failureRate}%` }}
                 ></div>
               </div>

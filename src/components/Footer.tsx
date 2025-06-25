@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AlertTriangle, Mail, Twitter, Linkedin, Plus } from 'lucide-react';
-import Logo from '../resources/Intentora.png';
+import Logo from '../resources/Intentora_failed_startup.png';
 
 
 const Footer = () => {
@@ -15,7 +15,7 @@ const Footer = () => {
               <img src={Logo} alt="Itentora Logo" />
             </Link>
             <p className="text-gray-400 mb-4 max-w-md">
-              Learn from the mistakes of others. Comprehensive teardowns of failed SaaS startups
+              Learn from the mistakes of others. Comprehensive teardowns of failed startups
               to help you avoid common pitfalls and build sustainable businesses.
             </p>
             <div className="flex space-x-4">
@@ -75,7 +75,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 Intentora: Failed SaaS Postmortem. All rights reserved. Learn from failure, build success.</p>
+          <p>&copy; 2024 Intentora: Failed Startup Postmortem. All rights reserved. Learn from failure, build success.</p>
         </div>
       </div>
     </footer>

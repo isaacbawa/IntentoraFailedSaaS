@@ -17,11 +17,11 @@ const Analytics = () => {
         <div className="text-center mb-12">
           <BarChart3 className="h-16 w-16 text-red-600 mx-auto mb-6" />
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            SaaS Failure Analytics
+            Startup Failure Analytics
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Data-driven insights from {teardownsData.length}+ real SaaS failures. Identify patterns, 
-            avoid red flags, and learn from $1.2B+ in documented mistakes.
+            Data-driven insights from {teardownsData.length}+ real startup failures. Identify patterns,
+            avoid red flags, and learn from $10.2B+ in documented mistakes.
           </p>
         </div>
 
@@ -34,7 +34,7 @@ const Analytics = () => {
             Get These Insights Weekly
           </h2>
           <p className="text-red-100 mb-6 max-w-2xl mx-auto">
-            Don't just read the data once. Get weekly failure analysis and trends 
+            Don't just read the data once. Get weekly failure analysis and trends
             delivered to your inbox to stay ahead of common startup pitfalls.
           </p>
           <Link
