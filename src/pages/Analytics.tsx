@@ -20,9 +20,13 @@ const Analytics = () => {
             Startup Failure Analytics
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Data-driven insights from {teardownsData.length}+ real startup failures. Identify patterns,
+            Data-driven insights from 1000+ real startup failures. Identify patterns,
             avoid red flags, and learn from $10.2B+ in documented mistakes.
           </p>
+          {/* <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Data-driven insights from {teardownsData.length}+ real startup failures. Identify patterns,
+            avoid red flags, and learn from $10.2B+ in documented mistakes.
+          </p> ## Todo Use this dynamic one when the real number of stories/teardown is enough*/}
         </div>
 
         {/* Analytics Content */}

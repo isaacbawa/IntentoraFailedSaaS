@@ -1,4 +1,4 @@
-// Analytics utilities for calculating failure patterns and trends
+// Enhanced & Comprehensive Analytics utilities for calculating startup failure patterns and trends
 export interface FailureAnalytics {
   topFailureReasons: Array<{
     reason: string;
@@ -16,11 +16,13 @@ export interface FailureAnalytics {
     count: number;
     avgDuration: string;
     avgRevenue: string;
+    representativeExamples: string[];
   }>;
   revenueRangeAnalysis: Array<{
     range: string;
     count: number;
     commonReasons: string[];
+    representativeExamples: string[];
   }>;
   redFlags: Array<{
     flag: string;
@@ -32,15 +34,15 @@ export interface FailureAnalytics {
     strategy: string;
     count: number;
     successRate: number;
+    representativeExamples: string[];
   }>;
 }
 
 export const calculateFailureAnalytics = (teardowns: any[]): FailureAnalytics => {
-  // Calculate top failure reasons
   const reasonCounts: { [key: string]: { count: number; examples: string[] } } = {};
-  
+
   teardowns.forEach(teardown => {
-    teardown.failure_reasons.forEach((reason: string) => {
+    teardown.failure_reasons?.forEach((reason: string) => {
       const normalizedReason = normalizeFailureReason(reason);
       if (!reasonCounts[normalizedReason]) {
         reasonCounts[normalizedReason] = { count: 0, examples: [] };
@@ -62,67 +64,84 @@ export const calculateFailureAnalytics = (teardowns: any[]): FailureAnalytics =>
     .sort((a, b) => b.count - a.count)
     .slice(0, 10);
 
-  // Tech stack analysis (inferred from market and description)
-  const techStackAnalysis = analyzeTechStacks(teardowns);
-  
-  // Industry breakdown
-  const industryBreakdown = analyzeIndustries(teardowns);
-  
-  // Revenue range analysis
-  const revenueRangeAnalysis = analyzeRevenueRanges(teardowns);
-  
-  // Red flags analysis
-  const redFlags = calculateRedFlags(teardowns);
-  
-  // Pricing patterns
-  const pricingPatterns = analyzePricingPatterns(teardowns);
-
   return {
     topFailureReasons,
-    techStackAnalysis,
-    industryBreakdown,
-    revenueRangeAnalysis,
-    redFlags,
-    pricingPatterns
+    techStackAnalysis: analyzeTechStacks(teardowns),
+    industryBreakdown: analyzeIndustries(teardowns),
+    revenueRangeAnalysis: analyzeRevenueRanges(teardowns),
+    redFlags: calculateRedFlags(teardowns),
+    pricingPatterns: analyzePricingPatterns(teardowns)
   };
 };
 
 const normalizeFailureReason = (reason: string): string => {
   const normalized = reason.toLowerCase();
-  
-  // Group similar reasons together
-  if (normalized.includes('unit economics') || normalized.includes('economics') || normalized.includes('margins')) {
-    return 'Poor Unit Economics';
+  const mapping: { [key: string]: string } = {
+    'unit economics': 'Poor Unit Economics',
+    'economics': 'Poor Unit Economics',
+    'margins': 'Poor Unit Economics',
+    'product-market fit': 'No Product-Market Fit',
+    'market fit': 'No Product-Market Fit',
+    'no market need': 'No Product-Market Fit',
+    'customer acquisition': 'High Customer Acquisition Costs',
+    'acquisition cost': 'High Customer Acquisition Costs',
+    'cac': 'High Customer Acquisition Costs',
+    'competition': 'Intense Competition',
+    'competitive': 'Intense Competition',
+    'legal': 'Legal/Regulatory Issues',
+    'compliance': 'Legal/Regulatory Issues',
+    'regulation': 'Legal/Regulatory Issues',
+    'funding': 'Funding/Cash Flow Problems',
+    'cash': 'Funding/Cash Flow Problems',
+    'money': 'Funding/Cash Flow Problems',
+    'financial': 'Funding/Cash Flow Problems',
+    'team': 'Team/Founder Issues',
+    'founder': 'Team/Founder Issues',
+    'co-founder': 'Team/Founder Issues',
+    'scaling': 'Scaling Challenges',
+    'scale': 'Scaling Challenges',
+    'growth': 'Scaling Challenges',
+    'grew too fast': 'Scaling Challenges',
+    'retention': 'Poor User Retention',
+    'churn': 'Poor User Retention',
+    'monetization': 'Monetization Problems',
+    'revenue model': 'Monetization Problems',
+    'pricing': 'Monetization Problems'
+  };
+
+  for (const key in mapping) {
+    if (normalized.includes(key)) return mapping[key];
   }
-  if (normalized.includes('product-market fit') || normalized.includes('market fit') || normalized.includes('no market need')) {
-    return 'No Product-Market Fit';
-  }
-  if (normalized.includes('customer acquisition') || normalized.includes('acquisition cost') || normalized.includes('cac')) {
-    return 'High Customer Acquisition Costs';
-  }
-  if (normalized.includes('competition') || normalized.includes('competitive')) {
-    return 'Intense Competition';
-  }
-  if (normalized.includes('legal') || normalized.includes('compliance') || normalized.includes('regulation')) {
-    return 'Legal/Regulatory Issues';
-  }
-  if (normalized.includes('funding') || normalized.includes('cash') || normalized.includes('money') || normalized.includes('financial')) {
-    return 'Funding/Cash Flow Problems';
-  }
-  if (normalized.includes('team') || normalized.includes('founder') || normalized.includes('co-founder')) {
-    return 'Team/Founder Issues';
-  }
-  if (normalized.includes('scaling') || normalized.includes('scale') || normalized.includes('growth')) {
-    return 'Scaling Challenges';
-  }
-  if (normalized.includes('retention') || normalized.includes('churn')) {
-    return 'Poor User Retention';
-  }
-  if (normalized.includes('monetization') || normalized.includes('revenue model') || normalized.includes('pricing')) {
-    return 'Monetization Problems';
-  }
-  
   return reason;
+};
+
+const parseDuration = (duration: string): number => {
+  const match = duration.match(/(\d+)\s*(months|month|years|year)/i);
+  if (!match) return 0;
+  const value = parseInt(match[1]);
+  return match[2].includes('year') ? value * 12 : value;
+};
+
+const calculateAverageDuration = (durations: string[]): string => {
+  const total = durations.map(parseDuration).reduce((sum, val) => sum + val, 0);
+  const avg = durations.length ? total / durations.length : 0;
+  return avg >= 12 ? `${(avg / 12).toFixed(1)} years` : `${avg.toFixed(0)} months`;
+};
+
+const extractRevenueNumber = (revenueString: string): number => {
+  const match = revenueString.match(/\$(\d+(?:\.\d+)?)([MK]?)/);
+  if (!match) return 0;
+  const number = parseFloat(match[1]);
+  const multiplier = match[2] === 'M' ? 1_000_000 : match[2] === 'K' ? 1_000 : 1;
+  return number * multiplier;
+};
+
+const calculateAverageRevenue = (revenues: string[]): string => {
+  const total = revenues.map(extractRevenueNumber).reduce((sum, val) => sum + val, 0);
+  const avg = revenues.length ? total / revenues.length : 0;
+  if (avg >= 1_000_000) return `$${(avg / 1_000_000).toFixed(1)}M`;
+  if (avg >= 1_000) return `$${(avg / 1_000).toFixed(1)}K`;
+  return `$${avg.toFixed(0)}`;
 };
 
 const analyzeTechStacks = (teardowns: any[]) => {
@@ -137,11 +156,12 @@ const analyzeTechStacks = (teardowns: any[]) => {
   ];
 
   return stacks.map(stack => {
-    const count = teardowns.filter(teardown => 
-      stack.keywords.some(keyword => 
-        teardown.market.toLowerCase().includes(keyword) ||
-        teardown.short_description.toLowerCase().includes(keyword) ||
-        teardown.detailed_summary.toLowerCase().includes(keyword)
+    const count = teardowns.filter(teardown =>
+      stack.keywords.some(keyword =>
+        new RegExp(`\\b${keyword}\\b`, 'i').test(teardown.market?.toLowerCase() || '') ||
+        new RegExp(`\\b${keyword}\\b`, 'i').test(teardown.short_description?.toLowerCase() || '') ||
+        new RegExp(`\\b${keyword}\\b`, 'i').test(teardown.detailed_summary?.toLowerCase() || '') ||
+        new RegExp(`\\b${keyword}\\b`, 'i').test(teardown.tech_stack?.toLowerCase() || '')
       )
     ).length;
 
@@ -154,16 +174,17 @@ const analyzeTechStacks = (teardowns: any[]) => {
 };
 
 const analyzeIndustries = (teardowns: any[]) => {
-  const industries: { [key: string]: { count: number; durations: string[]; revenues: string[] } } = {};
-  
+  const industries: { [key: string]: { count: number; durations: string[]; revenues: string[]; examples: string[] } } = {};
+
   teardowns.forEach(teardown => {
-    const industry = teardown.market;
+    const industry = teardown.market || 'Unknown';
     if (!industries[industry]) {
-      industries[industry] = { count: 0, durations: [], revenues: [] };
+      industries[industry] = { count: 0, durations: [], revenues: [], examples: [] };
     }
     industries[industry].count++;
-    industries[industry].durations.push(teardown.duration);
-    industries[industry].revenues.push(teardown.revenue);
+    if (teardown.duration) industries[industry].durations.push(teardown.duration);
+    if (teardown.revenue) industries[industry].revenues.push(teardown.revenue);
+    if (industries[industry].examples.length < 3) industries[industry].examples.push(teardown.name);
   });
 
   return Object.entries(industries)
@@ -171,17 +192,18 @@ const analyzeIndustries = (teardowns: any[]) => {
       industry,
       count: data.count,
       avgDuration: calculateAverageDuration(data.durations),
-      avgRevenue: data.revenues[0] // Simplified for now
+      avgRevenue: calculateAverageRevenue(data.revenues),
+      representativeExamples: data.examples
     }))
     .sort((a, b) => b.count - a.count);
 };
 
 const analyzeRevenueRanges = (teardowns: any[]) => {
   const ranges = [
-    { range: '$0-1M raised', min: 0, max: 1000000 },
-    { range: '$1M-10M raised', min: 1000000, max: 10000000 },
-    { range: '$10M-50M raised', min: 10000000, max: 50000000 },
-    { range: '$50M+ raised', min: 50000000, max: Infinity }
+    { range: '$0-1M raised', min: 0, max: 1_000_000 },
+    { range: '$1M-10M raised', min: 1_000_000, max: 10_000_000 },
+    { range: '$10M-50M raised', min: 10_000_000, max: 50_000_000 },
+    { range: '$50M+ raised', min: 50_000_000, max: Infinity }
   ];
 
   return ranges.map(range => {
@@ -191,86 +213,82 @@ const analyzeRevenueRanges = (teardowns: any[]) => {
     });
 
     const commonReasons = getTopReasonsForGroup(teardownsInRange);
+    const examples = teardownsInRange.slice(0, 3).map(t => t.name);
 
     return {
       range: range.range,
       count: teardownsInRange.length,
-      commonReasons
+      commonReasons,
+      representativeExamples: examples
     };
   }).filter(item => item.count > 0);
 };
 
-const calculateRedFlags = (teardowns: any[]) => {
-  return [
-    {
-      flag: 'Multiple Pivots (3+ in 6 months)',
-      correlation: 78,
-      description: 'Startups that pivot frequently often lack clear vision',
-      examples: ['Quirky', 'Grockit', 'Turntable.fm']
-    },
-    {
-      flag: 'No Domain Expertise',
-      correlation: 62,
-      description: 'Founders without industry knowledge struggle with execution',
-      examples: ['Homejoy', 'Beepi', 'Sprig']
-    },
-    {
-      flag: 'Unsustainable Unit Economics',
-      correlation: 85,
-      description: 'Burning money on each customer is a death sentence',
-      examples: ['Homejoy', 'Shyp', 'Washio']
-    },
-    {
-      flag: 'Over-reliance on VC Funding',
-      correlation: 71,
-      description: 'Companies that can\'t achieve profitability without constant funding',
-      examples: ['Quibi', 'Beepi', 'Webvan']
-    },
-    {
-      flag: 'Ignoring Legal/Regulatory Issues',
-      correlation: 89,
-      description: 'Compliance problems can shut down businesses overnight',
-      examples: ['Zirtual', 'Homejoy', 'Secret']
-    }
-  ];
-};
-
-const analyzePricingPatterns = (teardowns: any[]) => {
-  return [
-    { strategy: 'Freemium Model', count: 8, successRate: 25 },
-    { strategy: 'Subscription Only', count: 12, successRate: 33 },
-    { strategy: 'Transaction-based', count: 6, successRate: 17 },
-    { strategy: 'One-time Purchase', count: 3, successRate: 0 }
-  ];
-};
-
-const extractRevenueNumber = (revenueString: string): number => {
-  const match = revenueString.match(/\$(\d+(?:\.\d+)?)([MK]?)/);
-  if (!match) return 0;
-  
-  const number = parseFloat(match[1]);
-  const multiplier = match[2] === 'M' ? 1000000 : match[2] === 'K' ? 1000 : 1;
-  
-  return number * multiplier;
-};
-
-const calculateAverageDuration = (durations: string[]): string => {
-  // Simplified calculation - in real app, parse duration strings properly
-  return durations[0] || 'Unknown';
-};
-
 const getTopReasonsForGroup = (teardowns: any[]): string[] => {
   const reasonCounts: { [key: string]: number } = {};
-  
+
   teardowns.forEach(teardown => {
-    teardown.failure_reasons.forEach((reason: string) => {
+    teardown.failure_reasons?.forEach((reason: string) => {
       const normalized = normalizeFailureReason(reason);
       reasonCounts[normalized] = (reasonCounts[normalized] || 0) + 1;
     });
   });
 
   return Object.entries(reasonCounts)
-    .sort(([,a], [,b]) => b - a)
+    .sort(([, a], [, b]) => b - a)
     .slice(0, 3)
     .map(([reason]) => reason);
+};
+
+const calculateRedFlags = (teardowns: any[]) => [
+  {
+    flag: 'Multiple Pivots (3+ in 6 months)',
+    correlation: 78,
+    description: 'Startups that pivot frequently often lack clear vision',
+    examples: ['Quirky', 'Grockit', 'Turntable.fm']
+  },
+  {
+    flag: 'No Domain Expertise',
+    correlation: 62,
+    description: 'Founders without industry knowledge struggle with execution',
+    examples: ['Homejoy', 'Beepi', 'Sprig']
+  },
+  {
+    flag: 'Unsustainable Unit Economics',
+    correlation: 85,
+    description: 'Burning money on each customer is a death sentence',
+    examples: ['Homejoy', 'Shyp', 'Washio']
+  },
+  {
+    flag: 'Over-reliance on VC Funding',
+    correlation: 71,
+    description: 'Companies that can\'t achieve profitability without constant funding',
+    examples: ['Quibi', 'Beepi', 'Webvan']
+  },
+  {
+    flag: 'Ignoring Legal/Regulatory Issues',
+    correlation: 89,
+    description: 'Compliance problems can shut down businesses overnight',
+    examples: ['Zirtual', 'Homejoy', 'Secret']
+  }
+];
+
+const analyzePricingPatterns = (teardowns: any[]) => {
+  const modelMap: { [strategy: string]: { count: number; successCount: number; examples: string[] } } = {};
+
+  teardowns.forEach(teardown => {
+    const strategy = teardown.pricing_model || 'Unknown';
+    const succeeded = ['acquired', 'profitable'].includes(teardown.status);
+    if (!modelMap[strategy]) modelMap[strategy] = { count: 0, successCount: 0, examples: [] };
+    modelMap[strategy].count++;
+    if (succeeded) modelMap[strategy].successCount++;
+    if (modelMap[strategy].examples.length < 3) modelMap[strategy].examples.push(teardown.name);
+  });
+
+  return Object.entries(modelMap).map(([strategy, data]) => ({
+    strategy,
+    count: data.count,
+    successRate: Math.round((data.successCount / data.count) * 100),
+    representativeExamples: data.examples
+  }));
 };
