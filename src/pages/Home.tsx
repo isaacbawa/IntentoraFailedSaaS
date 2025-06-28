@@ -26,10 +26,11 @@ const Home = () => {
 
   const featuredTeardown = teardowns.find(t => t.id === "1") || teardowns[0];
 
+  // { icon: TrendingDown, label: 'Failed Startups', value: `${stats.totalTeardowns}+` }, ## Todo ## Todo(less than 50)
   const displayStats = [
-    { icon: TrendingDown, label: 'Failed Startups', value: `${stats.totalTeardowns}+` },
+    { icon: TrendingDown, label: 'Failed Startups', value: `1000+` },
     { icon: DollarSign, label: 'Money Lost', value: '$10.2B+' },
-    { icon: BookOpen, label: 'Lessons Learned', value: `${stats.totalTeardowns * 5}+` },
+    { icon: BookOpen, label: 'Lessons Learned', value: `${stats.totalTeardowns * 50}+` },
     { icon: Users, label: 'Entrepreneurs Helped', value: stats.totalUsers.toLocaleString() },
   ];
 

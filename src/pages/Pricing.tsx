@@ -84,7 +84,7 @@ const Pricing = ({ isClerkEnabled }: PricingProps) => {
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Get access to detailed failure analysis, exclusive insights, and lessons learned from
-            over $1 billion in failed startups.
+            over $10 billion in failed startups.
           </p>
         </div>
 
