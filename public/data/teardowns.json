@@ -910,57 +910,197 @@
   {
     "id": "31",
     "name": "LightSail Energy",
-    "market": "Energy Storage SaaS/Hardware",
-    "revenue": "$70M raised",
-    "duration": "6 years",
+    "market": "Energy Storage (Hardware + Tech)",
+    "revenue": "$880M VC funding",
+    "duration": "10 years (2008–2018)",
     "failure_reasons": [
-      "Emergence of superior alternatives (Li-ion)",
-      "Commercial tech misalignment",
-      "Cash burn without product-market demand"
+      "Emergence of far cheaper lithium-ion batteries",
+      "Underlying tech proved inefficient (isothermal CAES issues)",
+      "High burn rate without commercial viability"
     ],
     "lessons_learned": [
-      "Watch adjacent tech trends closely",
-      "Hardware requires different pace to SaaS",
-      "Pivot or perish when market shifts"
+      "Monitor adjacent technology trends closely",
+      "Ensure your core tech isn’t easily leapfrogged",
+      "Align hardware R&D timelines with real-world adoption"
     ],
     "tags": [
-      "Technology Shift",
-      "Hardware Complexity",
+      "Tech Disruption",
+      "Hardware Risk",
       "Market Timing"
     ],
     "current_venture_name": "",
     "current_venture_url": "",
     "source_url": "https://en.wikipedia.org/wiki/LightSail_Energy",
     "is_premium": false,
-    "short_description": "Compressed-air energy storage company outpaced by lithium-ion",
-    "detailed_summary": "LightSail raised $70M to commercialize compressed air energy storage. By 2017 Li-ion became more viable and cheaper. The firm 'hibernated' then shut down in 2018."
+    "short_description": "Ambitious compressed-air energy storage startup outpaced by lithium-ion tech",
+    "detailed_summary": "LightSail Energy, founded in 2008 by Danielle Fong and Steve Crane, aimed to revolutionize energy storage using a compressed-air system with water-spray “isothermal” technology. They raised ~$70 million from major investors including Khosla Ventures, Bill Gates, and Total, and built a 55‑person team by 2014. Despite sophistication, the core technology proved uncompetitive: by 2016–17, lithium‑ion batteries had become dramatically cheaper and more efficient, eclipsing LightSail’s value proposition. Their flagship projects—a container-scale demo and even a Nova Scotia wind‑turbine energy storage initiative backed by local government—stalled. In 2017, they froze hiring, sold off tanks to gas firms, and officially shut down in early 2018 after burning through funding with no viable commercial product. Investors cited both technical misalignment and the rapid shift in battery pricing as kill switches. Their downfall offers urgent lessons: never freeze your business trajectory to unproven hardware, always price your innovation against current alternatives, and pivot quickly when the market moves faster than R&D. 💡"
   },
   {
     "id": "32",
     "name": "Webvan",
     "market": "Online Grocery Delivery",
-    "revenue": "$800M raised + IPO",
-    "duration": "5 years",
+    "revenue": "$396M VC + $375M IPO ($800M total)",
+    "duration": "5 years (1996–2001)",
     "failure_reasons": [
-      "Extensive fixed costs",
-      "Aggressive multi-city expansion",
-      "Unproven unit economics"
+      "Over‑expansion into multiple cities without unit economics",
+      "Built expensive warehouses and logistics from scratch",
+      "Underestimated real customer demand & retention"
     ],
     "lessons_learned": [
-      "Test model before scaling infrastructure",
-      "Build-demand must precede warehouses",
-      "High fixed costs increase collapse risk"
+      "Validate demand before investing in infrastructure",
+      "Scale infrastructure only after unit economics prove out",
+      "Know your customer’s habits and constraints"
     ],
     "tags": [
-      "Unit Economics",
-      "Over‑expansion",
-      "Logistics"
+      "Logistics",
+      "Over‑Expansion",
+      "Unit Economics"
     ],
     "current_venture_name": "",
     "current_venture_url": "",
     "source_url": "https://en.wikipedia.org/wiki/Webvan",
     "is_premium": false,
-    "short_description": "Online grocery service that burned $800M before collapsing",
-    "detailed_summary": "Webvan built warehouses and delivery fleets across multiple cities without proven demand. Its expenses far outpaced revenue, and it folded in 2001 amidst the dot-com crash."
+    "short_description": "Online grocery pioneer that burned nearly $800M building warehouses & fleets too soon",
+    "detailed_summary": "Webvan, founded in 1996 by ex‑Borders CEO Louis Borders, became one of the most infamous dot‑com era failures. Promising 30‑minute grocery delivery, Webvan aggressively expanded from its SF Bay Area launch in 1999 to a national footprint—ten cities, plans for 26— fueled by $396M in venture capital and a $375M IPO. Instead of validating demand, they built massive, 350,000‑sq‑ft automated warehouses via Bechtel and bought HomeGrocer for $1.2B. This infrastructure cost $125M per quarter to operate but only yielded ~$178M in annual sales, with 50% of first-time users never returning. They missed the core truth: most people shop for groceries as a routine, social experience—not for speed or automation. When the dot‑com bubble burst, their $830M in losses and $217M quarterly burn rate led to bankruptcy in 2001 with 2,200 employees laid off. Today, Webvan’s plastic tubs are repurposed as storage bins—a physical relic of hubris. Their collapse teaches brutal clarity: always prove demand before you build; don’t assume consumers will adopt radically new behaviours; and unit economics must come before market share. 🛠"
+  },
+  {
+    "id": "33",
+    "name": "Doppler Labs",
+    "market": "Wearable Audio Hardware",
+    "revenue": "$50M VC funding",
+    "duration": "5 years (2012–2017)",
+    "failure_reasons": [
+      "Hardware complexity and production delays",
+      "Battery life issues and feature underperformance",
+      "Inability to compete with tech giants"
+    ],
+    "lessons_learned": [
+      "Hardware startups need near-perfect execution",
+      "Don’t take on Apple/Google without clear differentiation",
+      "Be brutally honest about manufacturing risk and timelines"
+    ],
+    "tags": [
+      "Hardware Risk",
+      "Production Delay",
+      "Competitive Pressure"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://www.wired.com/story/inside-the-downfall-of-doppler-labs",
+    "is_premium": false,
+    "short_description": "Smart earbud pioneer that collapsed under hardware and manufacturing challenges",
+    "detailed_summary": "Doppler Labs, founded by Noah Kraft and Fritz Lanman, set out to revolutionize audio with 'Here One' wireless smart earbuds that let users control ambient sounds. Launch was delayed multiple times by hardware issues—battery underperformance, firmware bugs, and production delays. Despite $50M in investment, backers like David Geffen and Henry Kravis grew impatient. When Apple, Amazon, and Google quietly launched their own earbuds, Doppler lost strategic advantage. The team tried pivoting into hearing aids, but couldn't raise a critical $35M Series C. By November 2017, they shut down, returning capital and wiping out 50 employees. Their demise teaches a crucial lesson: hardware innovation demands flawless execution, and competing with tech giants without manufacturing mastery is often a death sentence. ⛓️"
+  },
+  {
+    "id": "34",
+    "name": "Pebble",
+    "market": "Smartwatch Hardware",
+    "revenue": "2M units sold, ~ $740M crowdfunding & sales",
+    "duration": "9 years (2012–2016)",
+    "failure_reasons": [
+      "Profit margin collapse under large-scale production",
+      "Mis-segmentation of target market (productivity vs fitness)",
+      "Inability to compete with Apple Watch"
+    ],
+    "lessons_learned": [
+      "High volume sales don’t guarantee sustainability",
+      "Stay aligned with evolving market behavior",
+      "Pivot early when big competitors absorb your advantage"
+    ],
+    "tags": [
+      "Hardware Margins",
+      "Market Misfit",
+      "Competitive Disruption"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://www.wired.com/2016/12/the-inside-story-behind-pebbles-demise",
+    "is_premium": false,
+    "short_description": "Kickstarter smartwatch leader that couldn’t sustain earnings or compete with Apple",
+    "detailed_summary": "Pebble began as a Kickstarter breakout in 2012, raising over $10M and selling 2 million watches over its lifespan. Initially lauded for its open platform and productivity tools, it grew to a global brand. But as fitness-focused wearables like Fitbit and Apple Watch emerged, Pebble failed to pivot. Profit margins thinned dramatically under hardware scale-up, and continued investment in niche productivity features did little to stem consumer drift. By 2016, they ran out of funds and sold assets to Fitbit. Pebble’s story teaches that early success in hardware can mask lurking unit-economics traps—and ignoring where the market is going is a recipe for irrelevance."
+  },
+  {
+    "id": "35",
+    "name": "Forward",
+    "market": "AI-enabled Healthcare Clinics",
+    "revenue": "$650M VC funding",
+    "duration": "7 years (2017–2024)",
+    "failure_reasons": [
+      "Tech integration failures in critical health processes",
+      "Low adoption of futuristic 'CarePods'",
+      "Unsustainable unit economics"
+    ],
+    "lessons_learned": [
+      "Testing in healthcare requires extreme reliability",
+      "Even compelling tech fails without user trust",
+      "Burn rates matter even with massive funding"
+    ],
+    "tags": [
+      "HealthTech",
+      "Tech Integration",
+      "Trust & Reliability"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://www.businessinsider.com/healthcare-startup-forward-shutdown-carepod-adrian-aoun-2024-11",
+    "is_premium": false,
+    "short_description": "AI-driven primary-care startup that collapsed due to tech failures and low trust",
+    "detailed_summary": "Forward launched in 2017 with a mission to revolutionize primary care using AI-powered 'CarePods'—sophisticated kiosks that ran self-administered diagnostics. Backed by $650M in venture funding, they scaled clinics and kits for patients. But by 2023, technical problems—including unreliable blood-draw capabilities and software bugs—caused patient frustration and trust breakdown. They had planned 3,200 CarePods in 12 months but installed just five due to logistical and usability issues. Mounting costs and slow adoption forced a shutdown in November 2024, with massive layoffs and clinic closures. Forward’s fall underscores that in healthcare, **human trust and operational reliability outweigh tech novelty**, and even bold funding can’t fix flawed execution."
+  },
+  {
+    "id": "36",
+    "name": "Homejoy",
+    "market": "On-Demand Home Cleaning Service",
+    "revenue": "$40M VC funding",
+    "duration": "5 years (2010–2015)",
+    "failure_reasons": [
+      "Unsustainable customer acquisition costs",
+      "Worker classification lawsuits",
+      "Inconsistent service quality"
+    ],
+    "lessons_learned": [
+      "Regulation risk can erase margins overnight",
+      "Quality over expansion matters in service platforms",
+      "Ensure sustainable unit economics before scaling"
+    ],
+    "tags": [
+      "On-Demand",
+      "Legal Risk",
+      "Quality Control"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://www.wired.com/2015/10/why-homejoy-failed",
+    "is_premium": false,
+    "short_description": "VC‑backed cleaning service undone by high costs and legal battles",
+    "detailed_summary": "Homejoy launched in 2010 to simplify home cleaning via an Uber-like interface. They raised $40M and expanded rapidly, tapping into a $400B global market. But they relied on contractors at low pay, which led to inconsistent service and four separate lawsuits over employment classification. Customer acquisition costs skyrocketed, while repeat usage lagged. By 2015, investor sentiment soured amidst mounting legal exposure and slim margins. Homejoy shut down—refunding customers—leaving 150k users stranded. The core lesson: in service startups, you cannot outsource quality or skimp on compliance. Platforms must ensure reliable delivery and durable economics."
+  },
+  {
+    "id": "37",
+    "name": "Boo.com",
+    "market": "E‑Commerce Fashion",
+    "revenue": "$135M VC funding",
+    "duration": "1.5 years (1999–2000)",
+    "failure_reasons": [
+      "Over-engineered website with poor UX",
+      "Massive early marketing spend",
+      "Launched before broadband adoption"
+    ],
+    "lessons_learned": [
+      "Keep UX simple, especially when users lack bandwidth",
+      "Align tech with audience capabilities",
+      "Avoid spending big before proving product-market fit"
+    ],
+    "tags": [
+      "UX Mistake",
+      "Timing Misalignment",
+      "Over‑Marketing"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://en.wikipedia.org/wiki/Boo.com",
+    "is_premium": false,
+    "short_description": "Infamously failed fashion e‑commerce site that burned through $135M",
+    "detailed_summary": "Boo.com launched in late 1999 as a flashy online fashion destination with 3D avatars, Flash richness, and dozens of international offices. But UK and EU users still relied on slow 56K modems. Loading times stretched into minutes, and navigation was confusing. Simultaneously, the company burned $25M in advertising before getting a single order. Within 18 months, they’d spent $135M on tech, marketing, and global expansion. In May 2000, the business collapsed and liquidated. Boo.com remains a cautionary tale that **cool tech plus no speed equals disappear**, and **don’t market boldly before product works fast and clearly**."
   }
 ]

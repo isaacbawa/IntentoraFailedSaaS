@@ -1,5 +1,5 @@
 // Centralized data store for the application
-import teardownsData from '../data/teardowns.json';
+// import teardownsData from '../data/teardowns.json';
 
 export interface Teardown {
   id: string;
@@ -59,12 +59,40 @@ class DataStore {
     return DataStore.instance;
   }
 
-  private loadData() {
-    // Load teardowns from JSON and localStorage
+  // private loadData() {
+  //   // Load teardowns from JSON and localStorage
+  //   const storedTeardowns = localStorage.getItem('teardowns');
+  //   if (storedTeardowns) {
+  //     this.teardowns = JSON.parse(storedTeardowns);
+  //   } else {
+  //     this.teardowns = teardownsData.map(t => ({
+  //       ...t,
+  //       created_at: new Date().toISOString(),
+  //       updated_at: new Date().toISOString()
+  //     }));
+  //     this.saveTeardowns();
+  //   }
+
+  //   // Load submissions
+  //   const storedSubmissions = localStorage.getItem('storySubmissions');
+  //   if (storedSubmissions) {
+  //     this.submissions = JSON.parse(storedSubmissions);
+  //   }
+
+  //   // Load subscribers
+  //   const storedSubscribers = localStorage.getItem('newsletterSubscribers');
+  //   if (storedSubscribers) {
+  //     this.subscribers = JSON.parse(storedSubscribers);
+  //   }
+  // }
+
+  private async loadData() {
     const storedTeardowns = localStorage.getItem('teardowns');
     if (storedTeardowns) {
       this.teardowns = JSON.parse(storedTeardowns);
     } else {
+      const response = await fetch('/data/teardowns.json?ts=' + Date.now());
+      const teardownsData = await response.json();
       this.teardowns = teardownsData.map(t => ({
         ...t,
         created_at: new Date().toISOString(),
@@ -85,6 +113,7 @@ class DataStore {
       this.subscribers = JSON.parse(storedSubscribers);
     }
   }
+
 
   private saveTeardowns() {
     localStorage.setItem('teardowns', JSON.stringify(this.teardowns));

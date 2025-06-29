@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, Filter, TrendingDown, DollarSign, Clock, Tag, ArrowRight, Mail, Image } from 'lucide-react';
 import DataStore from '../utils/dataStore';
+import TeardownSideBar from '../components/TeardownSideBar';
 
 const FailureStories = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -162,9 +163,13 @@ const FailureStories = () => {
             Failure Stories
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Learn from {teardowns.length} real startup failures. Each story reveals the critical mistakes
+            Learn from 1000+ real startup failures. Each story reveals the critical mistakes
             that cost entrepreneurs millions.
           </p>
+          {/* <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Learn from {teardowns.length} real startup failures. Each story reveals the critical mistakes
+            that cost entrepreneurs millions.
+          </p> ## Todo Use this when the number of stories are huge enough(the teardown length will be large enought for display) for now, keep to the static number*/}
         </div>
 
         {/* Filters */}
@@ -221,21 +226,60 @@ const FailureStories = () => {
           </div>
         </div>
 
-        {/* Teardown Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
-          {filteredTeardowns.map(teardown => (
-            <TeardownCard key={teardown.id} teardown={teardown} />
-          ))}
-        </div>
+        <div className="flex max-w-7xl mx-0 px-4 sm:px-6 lg:px-8 max-sm:grid max-md:grid">
+          <div>
+            {/* Teardown Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-1 gap-6 mb-12 max-w-3xl px-4 sm:px-6 lg:px-8">
+              {filteredTeardowns.map(teardown => (
+                <TeardownCard key={teardown.id} teardown={teardown} />
+              ))}
+            </div>
 
-        {/* No Results */}
-        {filteredTeardowns.length === 0 && (
-          <div className="text-center py-12">
-            <TrendingDown className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">No failure stories found</h3>
-            <p className="text-gray-600">Try adjusting your search or filter criteria</p>
+            {/* No Results */}
+            {filteredTeardowns.length === 0 && (
+              <div className="text-center py-12">
+                <TrendingDown className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                <h3 className="text-lg font-medium text-gray-900 mb-2">No failure stories found</h3>
+                <p className="text-gray-600">Try adjusting your search or filter criteria</p>
+              </div>
+            )}
           </div>
-        )}
+
+          {/* Teardown Sidebar */}
+          {/* <div className='bg-indigo-400 py-7'>
+            <div className="sticky top-20 left-7 px-4 sm:px-6 lg:px-8">
+              <TeardownSideBar />
+              <TeardownSideBar />
+              <TeardownSideBar />
+            </div>
+          </div> */}
+
+          <aside className="space-y-4 relative lg:sticky lg:top-24 max-w-[400px] w-full">
+            <div className="sticky top-24 bg-gray-50 border rounded-2xl shadow-sm p-4 space-y-6">
+              <TeardownSideBar
+                title="How MicroSaaS Found a Profitable Niche"
+                description="A real founder’s guide on building a $5K/mo business without code."
+                image="https://example.com/microsaas-cover.jpg"
+                sponsorName="NicheStarter"
+                link="https://nichestarter.com/teardown"
+              />
+              <TeardownSideBar
+                title="Startup Legal Checklist"
+                description="Free PDF by top startup lawyers: avoid 7 costly legal traps."
+                image="https://example.com/legal-guide.jpg"
+                sponsorName="FoundersLegal"
+                link="https://founderslegal.com/checklist"
+              />
+              <TeardownSideBar
+                title="Automate Your Cold Outreach in 5 Minutes"
+                description="Send personalized emails using AI and boost conversions 10x."
+                image="https://example.com/outreach.jpg"
+                sponsorName="MailHack"
+                link="https://mailhack.io/demo"
+              />
+            </div>
+          </aside>
+        </div>
 
         {/* Newsletter CTA */}
         <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-lg p-8 text-center text-white">
@@ -256,7 +300,7 @@ const FailureStories = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
