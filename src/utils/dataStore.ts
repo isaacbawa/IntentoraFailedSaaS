@@ -1,6 +1,15 @@
 // Centralized data store for the application
 // import teardownsData from '../data/teardowns.json';
 
+const DATA_VERSION = 'v2'; // Increment when JSON structure or content changes
+const storedVersion = localStorage.getItem('dataVersion');
+
+if (storedVersion !== DATA_VERSION) {
+  localStorage.removeItem('teardowns'); // or clear() if needed
+  localStorage.setItem('dataVersion', DATA_VERSION);
+}
+
+
 export interface Teardown {
   id: string;
   name: string;

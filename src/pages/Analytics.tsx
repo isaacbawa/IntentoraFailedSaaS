@@ -64,6 +64,14 @@ import { Link } from 'react-router-dom';
 import FailureAnalyticsComponent from '../components/FailureAnalytics';
 import { calculateFailureAnalytics } from '../utils/analytics';
 
+const DATA_VERSION = 'v2'; // Increment when JSON structure or content changes
+const storedVersion = localStorage.getItem('dataVersion');
+
+if (storedVersion !== DATA_VERSION) {
+  localStorage.removeItem('teardowns'); // or clear() if needed
+  localStorage.setItem('dataVersion', DATA_VERSION);
+}
+
 const Analytics = () => {
   const [teardowns, setTeardowns] = useState([]);
 
