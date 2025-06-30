@@ -98,7 +98,7 @@ const FailureStories = () => {
               <p className="text-gray-600 mb-3">{teardown.short_description}</p>
             </div>
             <div className="flex flex-col items-end space-y-1 ml-4">
-              <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-medium">
+              <span className="overflow-hidden bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-medium">
                 {teardown.market}
               </span>
               <span className="text-gray-500 text-xs">{teardown.duration}</span>
@@ -226,7 +226,7 @@ const FailureStories = () => {
           </div>
         </div>
 
-        <div className="flex max-w-7xl mx-0 px-4 sm:px-6 lg:px-8 max-sm:grid max-md:grid">
+        <div className="flex max-w-7xl mx-0 pl-4 pr-0 sm:pl-6 sm:pr-0 lg:pl-8 lg:pr-0 max-sm:grid max-md:grid">
           <div>
             {/* Teardown Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-1 gap-6 mb-12 max-w-3xl px-4 sm:px-6 lg:px-8">
@@ -254,8 +254,8 @@ const FailureStories = () => {
             </div>
           </div> */}
 
-          <aside className="space-y-4 relative lg:sticky lg:top-24 max-w-[400px] w-full">
-            <div className="sticky top-24 bg-gray-50 border rounded-2xl shadow-sm p-4 space-y-6">
+          <aside className="space-y-4 relative lg:sticky lg:top-16 max-w-[350px] sm:max-w-[250px] lg:max-w-[300px] w-full">
+            <div className="sticky top-16 bg-gray-50 border rounded-2xl shadow-sm p-1 space-y-3">
               <TeardownSideBar
                 title="How MicroSaaS Found a Profitable Niche"
                 description="A real founder’s guide on building a $5K/mo business without code."

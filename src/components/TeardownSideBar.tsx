@@ -17,7 +17,7 @@ const TeardownSideBar = ({
     link,
 }: SponsoredContent) => {
     return (
-        <div className="bg-white mb-3 rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-200">
+        <div className="bg-white mb-1 rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-200">
             {image && (
                 <img
                     src={image}
@@ -28,7 +28,7 @@ const TeardownSideBar = ({
                     }}
                 />
             )}
-            <div className="p-2 mb-3">
+            <div className="p-2 mb-2">
                 <p className="text-xs uppercase text-gray-400 mb-1 font-medium tracking-wide">
                     Sponsored
                 </p>

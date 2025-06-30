@@ -1102,5 +1102,481 @@
     "is_premium": false,
     "short_description": "Infamously failed fashion e‑commerce site that burned through $135M",
     "detailed_summary": "Boo.com launched in late 1999 as a flashy online fashion destination with 3D avatars, Flash richness, and dozens of international offices. But UK and EU users still relied on slow 56K modems. Loading times stretched into minutes, and navigation was confusing. Simultaneously, the company burned $25M in advertising before getting a single order. Within 18 months, they’d spent $135M on tech, marketing, and global expansion. In May 2000, the business collapsed and liquidated. Boo.com remains a cautionary tale that **cool tech plus no speed equals disappear**, and **don’t market boldly before product works fast and clearly**."
+  },
+  {
+    "id": "38",
+    "name": "BrewPublik",
+    "market": "Craft Beverage Delivery",
+    "revenue": "$2M+ annual sales",
+    "duration": "5 years (2014–2019)",
+    "failure_reasons": [
+      "Mounting debt from rapid expansion",
+      "Pivot away from loyal home subscribers",
+      "Competitive pressure from delivery giants"
+    ],
+    "lessons_learned": [
+      "Know your core customers before scaling",
+      "Debt can kill even stable growth",
+      "Evaluate competition realistically, even when niche"
+    ],
+    "tags": [
+      "Hypercrowth Risk",
+      "Customer Migration",
+      "Competitive Blindspot"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://www.axios.com/local/charlotte/2019/09/23/behind-the-sudden-bankruptcy-of-brewpublik-the-charlotte-startup-that-delivered-beer-to-google-and-wework-headquarters-180442",
+    "is_premium": false,
+    "short_description": "Craft beer delivery startup that grew fast—but debt and shifts in focus sank it.",
+    "detailed_summary": "BrewPublik launched in 2014 in Charlotte, promising curated craft beer deliveries to homes. With 80% annual growth and $2M+ in 2018 revenue, they pivoted toward supplying large corporate clients like Google and WeWork. The result? They lost their loyal consumer base and took on mounting debt—owed between $100K and $500K—without securing further investment beyond an initial $15K pledge. By 2019, CEO Charlie Mulligan shuttered the company via Chapter 7 bankruptcy. Former employees described feeling blindsided. The startup’s collapse teaches a raw lesson: rapid expansion and debt without deep product-market fit and customer loyalty can be more fatal than flat growth."
+  },
+  {
+    "id": "39",
+    "name": "Juicero",
+    "market": "Premium Home Juicing Hardware",
+    "revenue": "$120M VC funding",
+    "duration": "4 years (2013–2017)",
+    "failure_reasons": [
+      "Over-engineered, overpriced hardware",
+      "Consumers realized packets could be squeezed by hand",
+      "Mismatch between price and value"
+    ],
+    "lessons_learned": [
+      "Test core value vs cost before scaling",
+      "Don’t hide product weaknesses behind marketing",
+      "Simplicity and user transparency matter"
+    ],
+    "tags": [
+      "Hardware Misfit",
+      "Pricing Disconnect",
+      "Consumer Trust"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://en.wikipedia.org/wiki/Juicero",
+    "is_premium": false,
+    "short_description": "High-tech juicer that failed when users realized they could squeeze packs manually.",
+    "detailed_summary": "Juicero, founded in 2013, produced a $400 Wi‑Fi-enabled juicer and proprietary juice packs on a subscription model. Backed with $120M from top-tier VC firms, it seemed high potential—until Bloomberg revealed the packs could be hand-squeezed, making the device redundant. Public backlash was swift; the brand lost credibility overnight. Sales collapsed, and by December 2017 Juicero shut down. The case highlights a brutal reality: consumers don’t care how sophisticated your tech is—they care if it’s needed and priced fairly. When simplicity exposes complexity, innovation loses its shine."
+  },
+  {
+    "id": "40",
+    "name": "Washio",
+    "market": "On‑Demand Laundry & Dry Cleaning",
+    "revenue": "$17M VC funding",
+    "duration": "3 years (2013–2016)",
+    "failure_reasons": [
+      "Unsustainable unit economics",
+      "Legal issues around worker classification",
+      "Overhead from tight scheduling and outsourcing"
+    ],
+    "lessons_learned": [
+      "Model costs realistically—laundry margins are tight",
+      "Compliance is foundational, not optional",
+      "Operational complexity scales quickly"
+    ],
+    "tags": [
+      "Gig Economy Risk",
+      "Cost Miscalculation",
+      "Legal Oversight"
+    ],
+    "current_venturename": "",
+    "current_venture_url": "",
+    "source_url": "https://en.wikipedia.org/wiki/Washio_(company)",
+    "is_premium": false,
+    "short_description": "Uber-for-laundry startup that failed due to costs and contractor lawsuits.",
+    "detailed_summary": "Washio launched in 2013 in Los Angeles, promising on-demand laundry via local 'ninjas'. Despite raising $17M, Washio outsourced washing, paid couriers, and included extras like cookies, eroding margins. Founders faced high scheduling complexity, low repeat usage, and lawsuits over contractor misclassification. By August 2016, after cleaning over one million items and burning through capital, Washio shut down. Rinse acquired its assets. Washio illustrates how gig startups can collapse when legal, unit-cost, and operational realities don’t align with the growth narrative."
+  },
+  {
+    "id": "41",
+    "name": "Quibi",
+    "market": "Short‑Form Video Streaming",
+    "revenue": "$1.75B VC + content spend",
+    "duration": "0.5 year (2020)",
+    "failure_reasons": [
+      "Misreading consumer behavior during pandemic",
+      "Lack of shareability and social integration",
+      "Sky-high content costs without retention"
+    ],
+    "lessons_learned": [
+      "Understand context—timing can kill even strong products",
+      "Social features drive content virality",
+      "Content budgets must balance with ROI"
+    ],
+    "tags": [
+      "Timing Error",
+      "UX Misstep",
+      "Cost Burn"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://nichepursuits.com/failed-startups",
+    "is_premium": false,
+    "short_description": "Well-funded mobile video platform that launched during lockdown and failed fast.",
+    "detailed_summary": "Quibi raised $1.75B to launch in April 2020 as a mobile-first, short-form streaming service. But lockdowns forced people to watch on TVs and socialize via Zoom—not mobile commuting. The platform didn’t allow social sharing, and its content lacked buzz. Despite high production budgets, retention tanked: 72% of viewers didn’t return after the first week. By December it shut down. Quibi underscores a bitter truth: heavy investment doesn’t offset misaligned timing or lack of organic engagement."
+  },
+  {
+    "id": "42",
+    "name": "Solyndra",
+    "market": "Solar Energy Manufacturing",
+    "revenue": "$1.8B funding (mostly debt)",
+    "duration": "7 years (2005–2011)",
+    "failure_reasons": [
+      "Plummeting polysilicon prices",
+      "Complex panel design with high costs",
+      "Policy shifts and intense competition"
+    ],
+    "lessons_learned": [
+      "Monitor global material trends proactively",
+      "Simpler often wins in commodity markets",
+      "Policy and cost swings can topple innovation quickly"
+    ],
+    "tags": [
+      "Commodity Risk",
+      "Cost Structure",
+      "Policy Exposure"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://reddit.com/r/Businessideas j0qyjt",
+    "is_premium": false,
+    "short_description": "Solar panel maker undone by a crash in polysilicon prices and costly design.",
+    "detailed_summary": "Solyndra, founded in 2005, produced cylindrical solar panels meant for rooftops. After raising $1.8B—including a $535M government loan guarantee—it went public in 2010. But polysilicon prices collapsed in 2008–09, and Solyndra’s complex panels couldn’t compete with simpler, cheaper flat panels. In 2011, amid political controversy and policy shifts, Solyndra filed for bankruptcy, wiping out federal loan guarantees. The company’s fall remains one of the most cited cases at the intersection of policy, innovation risk, and market timing. It teaches that even disruptive tech must align with raw costs and global pricing trends—or it dies under its own complexity."
+  },
+  {
+    "id": "43",
+    "name": "Lazerpay",
+    "market": "Web3 Crypto Payments (Nigeria)",
+    "revenue": "$1.1M VC funding",
+    "duration": "2 years (2021–2023)",
+    "failure_reasons": [
+      "Investor pullback during fundraising",
+      "Running on founder’s personal funds",
+      "Unable to close next funding round"
+    ],
+    "lessons_learned": [
+      "Seed funding isn’t enough for operational runway",
+      "Crypto regulatory unpredictability undermines investor confidence",
+      "Plan for fallback runway if Series A stalls"
+    ],
+    "tags": [
+      "Fundraising Risk",
+      "Crypto Regulation",
+      "Runway Management"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://todayafrica.co/lazerpay-shutdown/",
+    "is_premium": false,
+    "short_description": "Nigerian crypto-payments startup that folded after unable to raise follow-on funds",
+    "detailed_summary": "Lazerpay co‑founded by 19‑year‑old Njoku Emmanuel raised $1.1M in early 2021 to build a crypto payments gateway serving ~3,000 merchants in Nigeria. Despite early traction, it struggled to secure Series A funding amid uncertain crypto policy in Nigeria. With investor interest drying up, Lazerpay’s founders financed operations personally—just enough to limp along. By April 2023, they publicly announced shutdown, citing inability to close additional funding. This case teaches harsh truths: raising seed money isn't validation of long-term sustainability; in sensitive markets like crypto, regulatory signals heavily influence investor behavior; and founders should build financial buffers before assuming continued fundraising."
+  },
+  {
+    "id": "44",
+    "name": "Dash",
+    "market": "Fintech / Mobile Wallet Transfers (Ghana)",
+    "revenue": "≈ $85M funding",
+    "duration": "3 years (2019–2022)",
+    "failure_reasons": [
+      "Regulatory issues with Bank of Ghana",
+      "Missing documentation and internal mismanagement",
+      "Leadership disruption and declining trust"
+    ],
+    "lessons_learned": [
+      "Strong compliance infrastructure is non-negotiable",
+      "Document everything — missing filings can shut you down",
+      "Trust hinges not just on tech, but governance and stability"
+    ],
+    "tags": [
+      "Regulation",
+      "Governance Failure",
+      "Fintech Risk"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://todayafrica.co/dash-ghana-shutdown/",
+    "is_premium": false,
+    "short_description": "Ghanaian fintech processing large transactions that collapsed amid regulatory and governance breakdown",
+    "detailed_summary": "Dash, founded in 2019 by Prince Boakye Boampong, scaled quickly to handle over $1B in transactions across 5M users. Backed by ~$85M funding and a $200M valuation, they hit a wall in 2022 when Bank of Ghana froze operations citing missing documentation. Concurrent internal audits revealed financial mismanagement and resultantly the CEO was replaced. User trust collapsed overnight and by late 2022 the platform went completely silent. Dash’s fall emphasizes how even well-funded fintech ventures can die if regulatory compliance and corporate governance are neglected—especially in markets with tight financial oversight."
+  },
+  {
+    "id": "45",
+    "name": "54Gene",
+    "market": "Biotech / Genomics (Nigeria)",
+    "revenue": "$45M VC funding",
+    "duration": "4 years (2019–2023)",
+    "failure_reasons": [
+      "Financial instability despite large funding",
+      "Leadership turnover and lawsuits",
+      "Inability to monetize research pipelines quickly"
+    ],
+    "lessons_learned": [
+      "Biotech ventures need clear commercial milestones early",
+      "Board and executive stability is mission-critical",
+      "Ethics and transparency must be top priority in health tech"
+    ],
+    "tags": [
+      "BioTech Risk",
+      "Governance",
+      "Commercial Monetization"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://thecondia.com/54gene-shutdown/",
+    "is_premium": false,
+    "short_description": "Nigerian genomics company that collapsed after leadership conflict and inability to become commercially stable",
+    "detailed_summary": "54Gene, a Nigerian-founded genomics startup, raised ~$45M in VC funding including from Y Combinator’s W19 batch. The startup promised to map African genomes and address health inequities. Yet by 2023, it faced mounting financial deficits, lawsuits from former executive leadership alleging discrimination, and abrupt founder exits. Internal turmoil distracted from progress toward commercialization of their research pipelines. In September 2023 the company wound down operations, citing insurmountable instability. 54Gene’s collapse teaches that in hard science ventures, **leadership alignment, ethical transparency, and tangible revenue pathways are essential from day one**."
+  },
+  {
+    "id": "46",
+    "name": "Gokada",
+    "market": "Bike-Hailing & Logistics (Nigeria)",
+    "revenue": "$5.3M Series A",
+    "duration": "7 years (2017–2024)",
+    "failure_reasons": [
+      "Regulatory ban on motorcycles in Lagos",
+      "Diversification without core focus",
+      "Founder’s tragedy & resulting instability"
+    ],
+    "lessons_learned": [
+      "Regulatory risk can change everything overnight",
+      "Pivot must protect mission AND economics",
+      "Founders are people—external impact must be anticipated"
+    ],
+    "tags": [
+      "Regulation",
+      "Diversification",
+      "Founder Dependency"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://en.wikipedia.org/wiki/Gokada",
+    "is_premium": false,
+    "short_description": "Lagos motorcycle-hailing startup crushed by regulatory ban and internal crisis",
+    "detailed_summary": "Founded in 2017 by Fahim Saleh and Deji Oduntan, Gokada rapidly grew to 1,000 bikes and completed 1M rides, raising $5.3M. In Jan 2020, Lagos State imposed a motorcycle ban in many local councils, forcing Gokada to pivot into logistics and food delivery. While transaction volumes rose to $100M/year by mid‑2021, margins were low, and execution was rushed. In July 2020, CEO Fahim Saleh was tragically murdered, leading to leadership turmoil. By early 2025, with weak unit economics and persistent regulatory uncertainty, Gokada filed for Chapter 11 bankruptcy. This story underscores the devastating impact of regulatory changes, the fragility of founder‑centric leadership, and the perilous economics of reactionary pivots."
+  },
+  {
+    "id": "47",
+    "name": "Tress",
+    "market": "Social Community for Hair (Ghana)",
+    "revenue": "$120K seed",
+    "duration": "2 years (2016–2018)",
+    "failure_reasons": [
+      "Lack of sustainable monetization",
+      "Limited audience growth",
+      "Operational challenges in content curation"
+    ],
+    "lessons_learned": [
+      "Niche social platforms need monetization early",
+      "User experience must scale with content growth",
+      "Beam growth into revenue from day one"
+    ],
+    "tags": [
+      "Social Platform",
+      "Monetization",
+      "Content Scaling"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://thecondia.com/tress-shutdown/",
+    "is_premium": false,
+    "short_description": "Ghanaian hairstyle-sharing platform that folded due to monetization and scaling struggles",
+    "detailed_summary": "Tress, a Ghanaian-founded social platform for Black women's hairstyles, raised $120K and got accepted into Y Combinator’s W17 batch. Co‑founders Cassandra Sarfo, Esther Olatunde and Priscilla Hazel built a stylish app featuring curated hairstyle photo galleries and stylist directories. Despite early press buzz, user growth plateaued, engagement lagged, and ad-based monetization failed to gather traction. Content moderation struggled as community scale increased. By mid‑2018, without revenue or product-market-f it, Tress shut down quietly. The core lesson? Everyone loves niche social platforms at launch—but scaling them sustainably *requires* early monetization, strong UX systems, and managing content complexity."
+  },
+  {
+    "id": "48",
+    "name": "Kune Foods",
+    "market": "Cloud Kitchen Meal Delivery (Kenya)",
+    "revenue": "$1M funding",
+    "duration": "2 years (2020–2022)",
+    "failure_reasons": [
+      "Product priced above local alternatives",
+      "Misunderstood local food culture",
+      "Sharp competition and low differentiation"
+    ],
+    "lessons_learned": [
+      "Don’t compete with cheap, ingrained local options",
+      "Understand deeply the cultural cost/value trade-offs",
+      "Local markets require localized solutions, not global models"
+    ],
+    "tags": [
+      "FoodTech",
+      "Cultural Misfit",
+      "Competitive Pressure"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://turn0search4",
+    "is_premium": false,
+    "short_description": "Kenyan cloud‑kitchen startup that charged too much for meals locals found cheaper elsewhere",
+    "detailed_summary": "Kune Foods, founded in late 2020, operated a profitable-looking cloud kitchen serving ready-to-eat meals in Nairobi. Backed by $1M in funding, they hired chefs, aggregators, and couriers. But by 2021, they faced stiff competition from street-side kibandas offering similar meals at 50‑70% lower prices. Consumers chose local convenience over packaged premium. Kune pivoted to corporate catering, but COVID downturn hit demand and their debt pile grew. In mid‑2022, they shut down. Their failure shows that even well-funded food startups *must* align price with cultural context—and respect entrenched options. Innovation in food is still consumer-first, not tech-first."
+  },
+  {
+    "id": "49",
+    "name": "Pivo",
+    "market": "Fintech / Digital Bank (Nigeria)",
+    "revenue": "$2.8M seed funding",
+    "duration": "2 years (2021–2023)",
+    "failure_reasons": [
+      "Founders’ conflict disrupted operations",
+      "Damaged reputation and partnerships",
+      "Inability to close Series A"
+    ],
+    "lessons_learned": [
+      "Founder alignment is critical before scaling",
+      "Recruit co-founders with clear roles and conflict resolution processes",
+      "Funding depends as much on trust as traction"
+    ],
+    "tags": [
+      "Founder Conflict",
+      "Investor Trust",
+      "Fintech Risk"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://todayafrica.co/17-failed-startups-in-africa/#pivo",
+    "is_premium": false,
+    "short_description": "Nigerian digital bank that crumbled under co‑founder dispute just after seed funding.",
+    "detailed_summary": "Launched in early 2021 by Nkiru Amadi‑Emina and Ijeoma Akwiwu, Pivo entered Nigeria’s booming digital banking market with hopes of transforming trade finance. They raised a $2.8 million seed round from Precursor Ventures, Mercy Corps Ventures, and others. But by late 2022, internal conflict between the co‑founders had intensified, disrupting decision‑making and damaging investor confidence. Operational hiccups followed, partners pulled out, and the startup failed to secure Series A. In December 2023, operations ceased entirely. Pivo’s collapse serves as a poignant example: *no matter the market, if co‑founder cohesion fractures, the company’s foundation falls first.*"
+  },
+  {
+    "id": "50",
+    "name": "Passerine Aircraft",
+    "market": "Aviation / Drone Delivery (South Africa)",
+    "revenue": "$120K YC funding",
+    "duration": "3 years (2017–2020)",
+    "failure_reasons": [
+      "Hardware R&D underfunded and technologically complex",
+      "Insufficient capital to scale beyond prototype",
+      "Hardware timeline underestimated"
+    ],
+    "lessons_learned": [
+      "Hardware needs deep pockets and realistic timelines",
+      "Seed money rarely sustains full design-to-market cycles",
+      "Proof-of-concept ≠ path to commercialization"
+    ],
+    "tags": [
+      "Hardware Risk",
+      "Underfunded R&D",
+      "Aviation Tech"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://todayafrica.co/17-failed-startups-in-africa/#passerine",
+    "is_premium": false,
+    "short_description": "South African drone startup that ran out of runway before hardware could take off.",
+    "detailed_summary": "Passerine Aircraft, founded by Matthew Whalley, joined Y Combinator in 2017 with a bold vision: VTOL delivery drones using a jumping mechanism. They raised only $120K and built an early prototype that generated buzz. However, the team underestimated the capital-heavy R&D, certification, and manufacturing phases required for aerospace products. With no follow-on funding secured, progress stalled. By 2020, operations were quietly wound down. The startup’s story is a sobering reminder that *hardware startups can't escape the tyranny of capital and timelines*—especially in regulated fields like aviation."
+  },
+  {
+    "id": "51",
+    "name": "Wabona",
+    "market": "Video-on-Demand Platform (South Africa)",
+    "revenue": "Undisclosed",
+    "duration": "3 years (2012–2015)",
+    "failure_reasons": [
+      "Unproven business model in African VOD",
+      "Shut out by investor reluctance",
+      "Market readiness and consumer adoption lagged"
+    ],
+    "lessons_learned": [
+      "Local market timing is everything",
+      "Test small before scaling regionally",
+      "Even good ideas need local validation"
+    ],
+    "tags": [
+      "Market Timing",
+      "Funding Shortfall",
+      "Media Startup"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://www.experts.ng/blog/why-businesses-fail-in-africa/?source=wabona",
+    "is_premium": false,
+    "short_description": "South African VOD startup that couldn’t secure investor confidence or local traction.",
+    "detailed_summary": "Wabona launched in 2012 aiming to capture emerging demand for African video-on-demand content. Founded in South Africa by Simukai Mukuna and Simbarashe Mabasha, it struggled to find a viable subscription model in a region where broadband penetration and consumer habits were still nascent. Investor interest dwindled by 2015; co-founders admitted that the business model hadn’t been adequately tested at scale. Without follow-on funding, they had to shutter operations. Wabona’s failure shines a light on the importance of *matching product timing with infrastructure and user behaviour.*"
+  },
+  {
+    "id": "52",
+    "name": "Ousta",
+    "market": "Ride-Hailing (Egypt)",
+    "revenue": "Undisclosed local funding",
+    "duration": "2 years (2015–2017)",
+    "failure_reasons": [
+      "Outcompeted by international giants",
+      "Couldn't sustain driver incentives",
+      "Regulatory ambiguity and licensing issues"
+    ],
+    "lessons_learned": [
+      "Global players arrive fast—build defensibility early",
+      "Unit economics matter more than growth",
+      "Understand and influence local regulation aggressively"
+    ],
+    "tags": [
+      "Competition",
+      "Unit Economics",
+      "Regulatory Risk"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://insightspice.com/why-african-tech-startups-fail/",
+    "is_premium": false,
+    "short_description": "Egyptian ride-hailing app shut down after Uber and regulators squeezed its margins.",
+    "detailed_summary": "Ousta launched in Cairo in 2015 as a local alternative to Uber, focusing on lower commission and in-app Arabic support. Despite early growth, the arrival of Uber and Bolt triggered pricing wars, forcing Ousta to overspend on driver incentives. Competing globally proved costly, and the local government’s ambiguous ride-sharing regulation made operating uncertain. By 2017, they quietly exited. Ousta illustrates that even in emerging markets, *competition and regulation come faster than expected*. Startups must build defensibility—not just early traction."
+  },
+  {
+    "id": "53",
+    "name": "Legwork",
+    "market": "Social Networking (Nigeria)",
+    "revenue": "Bootstrapped",
+    "duration": "3 years (2011–2014)",
+    "failure_reasons": [
+      "Platform ahead of its time in pre-smartphone era",
+      "Insufficient funding for growth",
+      "Unable to pivot to mobile in time"
+    ],
+    "lessons_learned": [
+      "Timing with platform adoption is critical",
+      "Pivot early when tech landscape changes",
+      "Planning for mobile-first must be a priority"
+    ],
+    "tags": [
+      "Platform Shift",
+      "Timing Misalignment",
+      "Social Media"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://afrikanheroes.com/tag/failed-startups-africa/",
+    "is_premium": false,
+    "short_description": "Nigerian social network that faded when smartphone adoption surged too late to adapt.",
+    "detailed_summary": "Legwork launched in Nigeria around 2011 as a social platform before the smartphone tidal wave. With early traction, it attracted thousands and was seen as Facebook's local alternative. But limited funding, coupled with Africa's slow shift from feature phones to smartphones, handicapped their ability to pivot. By 2014 users lost interest and the platform never retooled to mobile. Legwork serves as a classic case: *if you build for the tech of tomorrow today but lack the budget to switch, you’ll be obsolete by necessity.*"
+  },
+  {
+    "id": "54",
+    "name": "HerRyde",
+    "market": "Women-Focused Ride-Hailing (Nigeria)",
+    "revenue": "Bootstrapped",
+    "duration": "1 year (2018–2019)",
+    "failure_reasons": [
+      "Executed in capital-intensive transport industry without funding",
+      "Struggled to maintain driver base",
+      "Operational costs outran bootstrapped revenue"
+    ],
+    "lessons_learned": [
+      "Clear mission doesn’t remove business fundamentals",
+      "Capital intensity requires deep pockets or slow rollout",
+      "Social value still needs sustainable unit economics"
+    ],
+    "tags": [
+      "Bootstrapped",
+      "Operational Cost",
+      "Mission vs Economics"
+    ],
+    "current_venture_name": "",
+    "current_venture_url": "",
+    "source_url": "https://au-startups.com/2025/04/23/learning-from-the-fall-why-these-african-startups-shut-down/",
+    "is_premium": false,
+    "short_description": "Uber-for-women ride service in Nigeria that cooled after funding and cost issues.",
+    "detailed_summary": "HerRyde launched in Nigeria in late 2018 as a women-centered ride-hailing service promising safe transport by female drivers. Supported by YC-style support and initial user enthusiasm, HerRyde managed 2,000+ rides across 200 drivers. But without VC capital, the bootstrapped model couldn't cover driver stipends, training, and logistics. By 2019 operations hibernated. HerRyde demonstrates a tough lesson: *positive mission-driven startups still need margins*. Noble cause isn't a substitute for sustainable cash flow."
   }
 ]
