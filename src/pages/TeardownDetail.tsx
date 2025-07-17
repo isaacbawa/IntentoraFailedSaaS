@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import TeardownSideBar from '../components/TeardownSideBar';
+import { useTeardown, useTeardowns, useStats } from '../hooks/useSupabaseData';
 import {
   ArrowLeft,
   TrendingDown,
@@ -13,37 +14,31 @@ import {
   ArrowRight,
   Image as ImageIcon
 } from 'lucide-react';
-import DataStore from '../utils/dataStore';
 
 const TeardownDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const [teardown, setTeardown] = useState(DataStore.getInstance().getTeardownById(id || ''));
-  const [relatedTeardowns, setRelatedTeardowns] = useState(DataStore.getInstance().getTeardowns());
-  const [stats, setStats] = useState(DataStore.getInstance().getStats());
-
-  useEffect(() => {
-    const refreshData = () => {
-      if (id) {
-        setTeardown(DataStore.getInstance().getTeardownById(id));
-      }
-      setRelatedTeardowns(DataStore.getInstance().getTeardowns());
-      setStats(DataStore.getInstance().getStats());
-    };
-
-    window.addEventListener('storage', refreshData);
-    window.addEventListener('focus', refreshData);
-
-    return () => {
-      window.removeEventListener('storage', refreshData);
-      window.removeEventListener('focus', refreshData);
-    };
-  }, [id]);
+  const { teardown, loading: teardownLoading, error: teardownError } = useTeardown(id || '');
+  const { teardowns: relatedTeardowns } = useTeardowns();
+  const { stats } = useStats();
 
   if (!teardown) {
+    if (teardownLoading) {
+      return (
+        <div className="min-h-screen bg-gray-50 py-8">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading story...</p>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="min-h-screen bg-gray-50 py-8">
         <div className="max-w-4xl mx-0 px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Story Not Found</h1>
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+            {teardownError || 'Story Not Found'}
+          </h1>
           <Link to="/failure-stories" className="text-red-600 hover:text-red-700">
             ← Back to Failure Stories
           </Link>
@@ -220,9 +215,6 @@ const TeardownDetail = () => {
               >
                 <Mail className="mr-2 h-5 w-5" />
                 Join 2,503+ Subscribers
-                {/* Join {stats.subscriberCount.toLocaleString()}</span> Subscribers    ## Todo Add this instead of the static number above when the number of subscribers or signups are adequate. */}
-
-
               </Link>
             </div>
 

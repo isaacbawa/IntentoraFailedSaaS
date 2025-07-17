@@ -1,34 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { SignUpButton, useUser } from '@clerk/clerk-react';
 import { Mail, CheckCircle, TrendingDown, Clock, Users, Star, ArrowRight } from 'lucide-react';
-import DataStore from '../utils/dataStore';
+import SupabaseDataStore from '../utils/supabaseDataStore';
+import { useStats } from '../hooks/useSupabaseData';
 
 const Newsletter = () => {
   const { isSignedIn, user } = useUser();
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [stats, setStats] = useState(DataStore.getInstance().getStats());
+  const { stats } = useStats();
 
-  useEffect(() => {
-    const refreshStats = () => {
-      setStats(DataStore.getInstance().getStats());
-    };
-
-    window.addEventListener('storage', refreshStats);
-    window.addEventListener('focus', refreshStats);
-
-    return () => {
-      window.removeEventListener('storage', refreshStats);
-      window.removeEventListener('focus', refreshStats);
-    };
-  }, []);
-
-  const handleSubscribe = () => {
+  const handleSubscribe = async () => {
     if (isSignedIn && user) {
-      DataStore.getInstance().addSubscriber(
+      await SupabaseDataStore.getInstance().addSubscriber(
         user.emailAddresses[0].emailAddress,
-        user.firstName || user.emailAddresses[0].emailAddress.split('@')[0]
+        user.firstName || user.emailAddresses[0].emailAddress.split('@')[0],
+        user.id
       );
-      setStats(DataStore.getInstance().getStats());
       setIsSubmitted(true);
     }
   };
@@ -135,9 +122,6 @@ const Newsletter = () => {
             <p className="text-gray-600 flex items-center">
               <Star className="h-4 w-4 text-yellow-400 mr-1" />
               Join <span className="font-semibold text-red-600 mx-1">2,503</span> entrepreneurs •
-              {/* Join <span className="font-semibold text-red-600 mx-1">{stats.subscriberCount.toLocaleString()}</span> entrepreneurs learning from failure    ## Todo Add this instead of the static number above when the number of subscribers or signups are adequate. */}
-
-              {/* <span className="font-semibold ml-1">94% open rate</span> */}
             </p>
           </div>
         </div>
@@ -277,9 +261,6 @@ const Newsletter = () => {
           </h2>
           <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto">
             Join 2,503+ entrepreneurs who are building smarter by learning from others' failures.
-            {/* Join <span className="font-semibold text-red-600 mx-1">{stats.subscriberCount.toLocaleString()}+</span> entrepreneurs who are building smarter by learning from others' failures.    ## Todo Add this instead of the static number above when the number of subscribers or signups are adequate. */}
-
-
           </p>
 
           {/* Social Proof */}
@@ -295,7 +276,6 @@ const Newsletter = () => {
               ))}
             </div>
             <p className="text-red-100 text-sm">
-              {/* <span className="font-semibold">94% open rate</span> • */}
               <span className="font-semibold ml-1">Zero spam</span> •
               <span className="font-semibold ml-1">Unsubscribe anytime</span>
             </p>

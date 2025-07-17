@@ -3,30 +3,14 @@ import { Plus } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { SignUpButton } from '@clerk/clerk-react';
 import { TrendingDown, AlertTriangle, BookOpen, Target, Users, DollarSign, Mail, ArrowRight } from 'lucide-react';
-import DataStore from '../utils/dataStore';
+import { useTeardowns, useStats } from '../hooks/useSupabaseData';
 
 const Home = () => {
-  const [stats, setStats] = useState(DataStore.getInstance().getStats());
-  const [teardowns, setTeardowns] = useState(DataStore.getInstance().getTeardowns());
-
-  useEffect(() => {
-    const refreshData = () => {
-      setStats(DataStore.getInstance().getStats());
-      setTeardowns(DataStore.getInstance().getTeardowns());
-    };
-
-    window.addEventListener('storage', refreshData);
-    window.addEventListener('focus', refreshData);
-
-    return () => {
-      window.removeEventListener('storage', refreshData);
-      window.removeEventListener('focus', refreshData);
-    };
-  }, []);
+  const { stats } = useStats();
+  const { teardowns } = useTeardowns();
 
   const featuredTeardown = teardowns.find(t => t.id === "1") || teardowns[0];
 
-  // { icon: TrendingDown, label: 'Failed Startups', value: `${stats.totalTeardowns}+` }, ## Todo ## Todo(less than 50)
   const displayStats = [
     { icon: TrendingDown, label: 'Failed Startups', value: `1000+` },
     { icon: DollarSign, label: 'Money Lost', value: '$10.2B+' },
@@ -89,7 +73,6 @@ const Home = () => {
               </div>
               <p className="text-sm text-gray-600">
                 Join <span className="font-semibold text-red-600">2,503+</span> entrepreneurs learning from failure
-                {/* Join <span className="font-semibold text-red-600">{stats.subscriberCount.toLocaleString()}</span> entrepreneurs learning from failure    ## Todo Add this instead of the static number above when the number of subscribers or signups are adequate. */}
               </p>
             </div>
           </div>
@@ -216,8 +199,6 @@ const Home = () => {
             </div>
             <p className="text-red-100 text-sm mb-6">
               <span className="font-semibold">2,503+</span> founders already learning from failure
-              {/* <span className="font-semibold">{stats.subscriberCount.toLocaleString()}</span> founders already learning from failure    ## Todo Add this instead of the static number above when the number of subscribers or signups are adequate. */}
-
             </p>
           </div>
 

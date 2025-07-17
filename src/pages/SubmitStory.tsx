@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useUser, SignInButton } from '@clerk/clerk-react';
 import { Plus, CheckCircle, AlertTriangle, Target, ExternalLink, ArrowRight, Lock, Upload, X, Image } from 'lucide-react';
-import DataStore from '../utils/dataStore';
+import SupabaseDataStore from '../utils/supabaseDataStore';
 
 const SubmitStory = () => {
   const { isSignedIn, user } = useUser();
@@ -101,7 +101,10 @@ const SubmitStory = () => {
       };
 
       // Submit to DataStore
-      DataStore.getInstance().addSubmission(cleanedData);
+      await SupabaseDataStore.getInstance().addSubmission({
+        ...cleanedData,
+        userId: user?.id
+      });
 
       setIsSubmitted(true);
     } catch (error) {
@@ -199,7 +202,7 @@ const SubmitStory = () => {
               <ul className="text-green-700 text-sm space-y-1 text-left max-w-md mx-auto">
                 <li>• We'll review your story for authenticity and value</li>
                 <li>• Our team will help polish the narrative if needed</li>
-                <li>• Once published, we'll promote it to our {DataStore.getInstance().getStats().subscriberCount.toLocaleString()}+ subscribers</li>
+                <li>• Once published, we'll promote it to our 2,503+ subscribers</li>
                 <li>• You'll get traffic and backlinks to your current venture</li>
               </ul>
             </div>

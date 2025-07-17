@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useUser } from '@clerk/clerk-react';
+import { useTeardowns, useSubmissions, useStats } from '../hooks/useSupabaseData';
+import SupabaseDataStore from '../utils/supabaseDataStore';
 import {
   Plus,
   Edit,
@@ -19,7 +21,7 @@ import {
   MessageSquare,
   Image
 } from 'lucide-react';
-import DataStore, { Teardown, SubmittedStory } from '../utils/dataStore';
+import { Teardown, SubmittedStory } from '../utils/supabaseDataStore';
 
 interface TeardownFormData {
   id: string;
@@ -39,43 +41,21 @@ interface TeardownFormData {
 
 const Admin = () => {
   const { user } = useUser();
-  const dataStore = DataStore.getInstance();
+  const dataStore = SupabaseDataStore.getInstance();
 
   // Check if user is admin
   const isAdmin = user?.publicMetadata?.role === 'admin' ||
     user?.emailAddresses?.[0]?.emailAddress === 'isaacbawan@gmail.com';
 
-  const [teardowns, setTeardowns] = useState<Teardown[]>([]);
-  const [submissions, setSubmissions] = useState<SubmittedStory[]>([]);
+  const { teardowns, loading: teardownsLoading, refreshTeardowns } = useTeardowns();
+  const { submissions, loading: submissionsLoading, refreshSubmissions } = useSubmissions();
+  const { stats, refreshStats } = useStats();
+  
   const [isEditing, setIsEditing] = useState(false);
   const [editingTeardown, setEditingTeardown] = useState<TeardownFormData | null>(null);
   const [activeTab, setActiveTab] = useState('teardowns');
   const [selectedStory, setSelectedStory] = useState<SubmittedStory | null>(null);
-  const [stats, setStats] = useState(dataStore.getStats());
-
-  // Load data on component mount and set up real-time updates
-  useEffect(() => {
-    const loadData = () => {
-      setTeardowns(dataStore.getTeardowns());
-      setSubmissions(dataStore.getSubmissions());
-      setStats(dataStore.getStats());
-    };
-
-    loadData();
-
-    // Listen for storage changes to update data in real-time
-    const handleStorageChange = () => {
-      loadData();
-    };
-
-    window.addEventListener('storage', handleStorageChange);
-    window.addEventListener('focus', handleStorageChange);
-
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-      window.removeEventListener('focus', handleStorageChange);
-    };
-  }, [dataStore]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [formData, setFormData] = useState<TeardownFormData>({
     id: '',
@@ -168,26 +148,38 @@ const Admin = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    const cleanedData = {
-      ...formData,
-      failure_reasons: formData.failure_reasons.filter(r => r.trim() !== ''),
-      lessons_learned: formData.lessons_learned.filter(l => l.trim() !== ''),
-      tags: formData.tags.filter(t => t.trim() !== '')
+    const submitData = async () => {
+      try {
+        const cleanedData = {
+          ...formData,
+          failure_reasons: formData.failure_reasons.filter(r => r.trim() !== ''),
+          lessons_learned: formData.lessons_learned.filter(l => l.trim() !== ''),
+          tags: formData.tags.filter(t => t.trim() !== '')
+        };
+
+        if (editingTeardown) {
+          // Update existing teardown
+          await dataStore.updateTeardown(editingTeardown.id, cleanedData);
+        } else {
+          // Add new teardown
+          await dataStore.addTeardown(cleanedData);
+        }
+
+        // Refresh data
+        await refreshTeardowns();
+        await refreshStats();
+        resetForm();
+      } catch (error) {
+        console.error('Error submitting teardown:', error);
+        alert('Error submitting teardown. Please try again.');
+      } finally {
+        setIsSubmitting(false);
+      }
     };
 
-    if (editingTeardown) {
-      // Update existing teardown
-      dataStore.updateTeardown(editingTeardown.id, cleanedData);
-    } else {
-      // Add new teardown
-      dataStore.addTeardown(cleanedData);
-    }
-
-    // Refresh data
-    setTeardowns(dataStore.getTeardowns());
-    setStats(dataStore.getStats());
-    resetForm();
+    submitData();
   };
 
   const resetForm = () => {
@@ -219,11 +211,11 @@ const Admin = () => {
     setIsEditing(true);
   };
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this teardown?')) {
-      dataStore.deleteTeardown(id);
-      setTeardowns(dataStore.getTeardowns());
-      setStats(dataStore.getStats());
+      await dataStore.deleteTeardown(id);
+      await refreshTeardowns();
+      await refreshStats();
     }
   };
 
@@ -239,19 +231,24 @@ const Admin = () => {
     linkElement.click();
   };
 
-  const handleStoryAction = (storyId: string, action: 'approve' | 'reject') => {
-    const reviewedBy = user?.emailAddresses?.[0]?.emailAddress || 'Admin';
-    dataStore.updateSubmissionStatus(storyId, action, reviewedBy);
+  const handleStoryAction = async (storyId: string, action: 'approve' | 'reject') => {
+    try {
+      const reviewedBy = user?.emailAddresses?.[0]?.emailAddress || 'Admin';
+      await dataStore.updateSubmissionStatus(storyId, action, reviewedBy);
 
-    if (action === 'approve') {
-      // Convert to teardown
-      dataStore.convertSubmissionToTeardown(storyId);
-      setTeardowns(dataStore.getTeardowns());
+      if (action === 'approve') {
+        // Convert to teardown
+        await dataStore.convertSubmissionToTeardown(storyId);
+        await refreshTeardowns();
+      }
+
+      // Refresh submissions and stats
+      await refreshSubmissions();
+      await refreshStats();
+    } catch (error) {
+      console.error('Error handling story action:', error);
+      alert('Error processing story. Please try again.');
     }
-
-    // Refresh submissions and stats
-    setSubmissions(dataStore.getSubmissions());
-    setStats(dataStore.getStats());
   };
 
   const tabs = [
@@ -353,10 +350,11 @@ const Admin = () => {
                       </h3>
                       <button
                         onClick={resetForm}
-                        className="text-gray-400 hover:text-gray-600"
+                        disabled={isSubmitting}
+                        className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 flex items-center disabled:opacity-50"
                       >
                         <X className="h-6 w-6" />
-                      </button>
+                        {isSubmitting ? 'Saving...' : (editingTeardown ? 'Update' : 'Create')} Story
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-6">
@@ -613,70 +611,77 @@ const Admin = () => {
             )}
 
             {/* Teardowns List */}
-            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Name
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Market
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Revenue
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Images
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Actions
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {teardowns.map((teardown) => (
-                    <tr key={teardown.id}>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-gray-900">{teardown.name}</div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-900">{teardown.market}</div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-900">{teardown.revenue}</div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center">
-                          {teardown.images && teardown.images.length > 0 ? (
-                            <div className="flex items-center">
-                              <Image className="h-4 w-4 text-green-500 mr-1" />
-                              <span className="text-sm text-gray-600">{teardown.images.length}</span>
-                            </div>
-                          ) : (
-                            <span className="text-sm text-gray-400">None</span>
-                          )}
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <button
-                          onClick={() => handleEdit(teardown)}
-                          className="text-red-600 hover:text-red-900 mr-4"
-                        >
-                          <Edit className="h-4 w-4" />
-                        </button>
-                        <button
-                          onClick={() => handleDelete(teardown.id)}
-                          className="text-red-600 hover:text-red-900"
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </button>
-                      </td>
+            {teardownsLoading ? (
+              <div className="text-center py-12">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-red-600 mx-auto mb-4"></div>
+                <p className="text-gray-600">Loading teardowns...</p>
+              </div>
+            ) : (
+              <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Name
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Market
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Revenue
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Images
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Actions
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {teardowns.map((teardown) => (
+                      <tr key={teardown.id}>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm font-medium text-gray-900">{teardown.name}</div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">{teardown.market}</div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">{teardown.revenue}</div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex items-center">
+                            {teardown.images && teardown.images.length > 0 ? (
+                              <div className="flex items-center">
+                                <Image className="h-4 w-4 text-green-500 mr-1" />
+                                <span className="text-sm text-gray-600">{teardown.images.length}</span>
+                              </div>
+                            ) : (
+                              <span className="text-sm text-gray-400">None</span>
+                            )}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                          <button
+                            onClick={() => handleEdit(teardown)}
+                            className="text-red-600 hover:text-red-900 mr-4"
+                          >
+                            <Edit className="h-4 w-4" />
+                          </button>
+                          <button
+                            onClick={() => handleDelete(teardown.id)}
+                            className="text-red-600 hover:text-red-900"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </div>
         )}
 
@@ -684,8 +689,209 @@ const Admin = () => {
         {activeTab === 'submissions' && (
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Story Submissions</h2>
-            <div className="space-y-6">
-              {submissions.length === 0 ? (
+            {submissionsLoading ? (
+              <div className="text-center py-12">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-red-600 mx-auto mb-4"></div>
+                <p className="text-gray-600">Loading submissions...</p>
+              </div>
+            ) : (
+              <div className="space-y-6">
+                {submissions.length === 0 ? (
+                  <div className="text-center py-12 bg-white rounded-lg">
+                    <MessageSquare className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                    <h3 className="text-lg font-medium text-gray-900 mb-2">No submissions yet</h3>
+                    <p className="text-gray-600">Story submissions will appear here for review.</p>
+                  </div>
+                ) : (
+                  submissions.map((story) => (
+                    <div key={story.id} className="bg-white rounded-lg shadow-sm p-6">
+                      <div className="flex items-start justify-between mb-4">
+                        <div>
+                          <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                            {story.startupName} by {story.founderName}
+                          </h3>
+                          <p className="text-gray-600 text-sm">
+                            {story.market} • {story.duration} • {story.revenue}
+                          </p>
+                          <p className="text-gray-500 text-xs mt-1">
+                            Submitted: {new Date(story.submittedAt).toLocaleDateString()}
+                          </p>
+                          {story.images && story.images.length > 0 && (
+                            <div className="flex items-center mt-2">
+                              <Image className="h-4 w-4 text-blue-500 mr-1" />
+                              <span className="text-sm text-gray-600">{story.images.length} images</span>
+                            </div>
+                          )}
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <span className={`px-3 py-1 rounded-full text-xs font-medium ${story.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
+                            story.status === 'approved' ? 'bg-green-100 text-green-800' :
+                              'bg-red-100 text-red-800'
+                            }`}>
+                            {story.status === 'pending' && <Clock className="h-3 w-3 inline mr-1" />}
+                            {story.status === 'approved' && <CheckCircle className="h-3 w-3 inline mr-1" />}
+                            {story.status === 'rejected' && <AlertTriangle className="h-3 w-3 inline mr-1" />}
+                            {story.status.charAt(0).toUpperCase() + story.status.slice(1)}
+                          </span>
+                          <button
+                            onClick={() => setSelectedStory(selectedStory?.id === story.id ? null : story)}
+                            className="text-gray-400 hover:text-gray-600"
+                          >
+                            <Eye className="h-4 w-4" />
+                          </button>
+                        </div>
+                      </div>
+
+                      {selectedStory?.id === story.id && (
+                        <div className="border-t border-gray-200 pt-4 mt-4">
+                          {/* Images */}
+                          {story.images && story.images.length > 0 && (
+                            <div className="mb-4">
+                              <h4 className="font-medium text-gray-900 mb-2">Images</h4>
+                              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                {story.images.map((image, index) => (
+                                  <img
+                                    key={index}
+                                    src={image}
+                                    alt={`Submission image ${index + 1}`}
+                                    className="w-full h-24 object-cover rounded-lg"
+                                  />
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                              <h4 className="font-medium text-gray-900 mb-2">Failure Reasons</h4>
+                              <ul className="text-sm text-gray-600 space-y-1">
+                                {story.failureReasons.map((reason, index) => (
+                                  <li key={index}>• {reason}</li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div>
+                              <h4 className="font-medium text-gray-900 mb-2">Lessons Learned</h4>
+                              <ul className="text-sm text-gray-600 space-y-1">
+                                {story.lessonsLearned.map((lesson, index) => (
+                                  <li key={index}>• {lesson}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div className="mb-4">
+                            <h4 className="font-medium text-gray-900 mb-2">Detailed Story</h4>
+                            <p className="text-sm text-gray-600">{story.detailedStory}</p>
+                          </div>
+
+                          {story.currentVenture && (
+                            <div className="mb-4">
+                              <h4 className="font-medium text-gray-900 mb-2">Current Venture</h4>
+                              <a
+                                href={story.currentVentureUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-red-600 hover:text-red-700 text-sm"
+                              >
+                                {story.currentVenture} ↗
+                              </a>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {story.status === 'pending' && (
+                        <div className="flex space-x-4 mt-4">
+                          <button
+                            onClick={() => handleStoryAction(story.id, 'approve')}
+                            className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-700 flex items-center"
+                          >
+                            <CheckCircle className="h-4 w-4 mr-2" />
+                            Approve & Publish
+                          </button>
+                          <button
+                            onClick={() => handleStoryAction(story.id, 'reject')}
+                            className="bg-red-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-red-700 flex items-center"
+                          >
+                            <AlertTriangle className="h-4 w-4 mr-2" />
+                            Reject
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  ))
+                )}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Analytics Tab */}
+        {activeTab === 'analytics' && (
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Analytics Overview</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-lg shadow-sm p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Traffic Overview</h3>
+                <div className="space-y-2 text-sm text-gray-600">
+                  <p><strong>Monthly Pageviews:</strong> {stats.monthlyPageviews.toLocaleString()}</p>
+                  <p><strong>Unique Visitors:</strong> {Math.round(stats.monthlyPageviews * 0.65).toLocaleString()}</p>
+                  <p><strong>Avg. Session Duration:</strong> 4:32</p>
+                  <p><strong>Bounce Rate:</strong> 28%</p>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-sm p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Newsletter Performance</h3>
+                <div className="space-y-2 text-sm text-gray-600">
+                  <p><strong>Subscribers:</strong> {stats.subscriberCount.toLocaleString()}</p>
+                  <p><strong>Open Rate:</strong> 94.2%</p>
+                  <p><strong>Click Rate:</strong> 31.7%</p>
+                  <p><strong>Growth Rate:</strong> +18% this month</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Newsletter Tab */}
+        {activeTab === 'newsletter' && (
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Newsletter Management</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-lg shadow-sm p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Send Weekly Newsletter</h3>
+                <p className="text-gray-600 mb-4">
+                  Create and send the weekly failure report to all subscribers.
+                </p>
+                <button className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 flex items-center">
+                  <Mail className="h-4 w-4 mr-2" />
+                  Compose Newsletter
+                </button>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-sm p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Subscriber Management</h3>
+                <div className="space-y-2 text-sm text-gray-600 mb-4">
+                  <p><strong>Total Subscribers:</strong> {stats.subscriberCount.toLocaleString()}</p>
+                  <p><strong>New This Week:</strong> {Math.round(stats.subscriberCount * 0.02)}</p>
+                  <p><strong>Unsubscribes:</strong> {Math.round(stats.subscriberCount * 0.001)}</p>
+                </div>
+                <button className="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 flex items-center">
+                  <Download className="h-4 w-4 mr-2" />
+                  Export Subscribers
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Admin;
                 <div className="text-center py-12 bg-white rounded-lg">
                   <MessageSquare className="h-12 w-12 text-gray-400 mx-auto mb-4" />
                   <h3 className="text-lg font-medium text-gray-900 mb-2">No submissions yet</h3>

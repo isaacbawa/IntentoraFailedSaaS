@@ -1,32 +1,14 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, Filter, TrendingDown, DollarSign, Clock, Tag, ArrowRight, Mail, Image } from 'lucide-react';
-import DataStore from '../utils/dataStore';
+import { useTeardowns } from '../hooks/useSupabaseData';
 import TeardownSideBar from '../components/TeardownSideBar';
 
 const FailureStories = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState('');
   const [sortBy, setSortBy] = useState('name');
-  const [teardowns, setTeardowns] = useState(DataStore.getInstance().getTeardowns());
-
-  // Refresh data when component mounts or when data changes
-  useEffect(() => {
-    const refreshData = () => {
-      setTeardowns(DataStore.getInstance().getTeardowns());
-    };
-
-    // Listen for storage changes to update data in real-time
-    window.addEventListener('storage', refreshData);
-
-    // Also refresh on focus (in case data was changed in another tab)
-    window.addEventListener('focus', refreshData);
-
-    return () => {
-      window.removeEventListener('storage', refreshData);
-      window.removeEventListener('focus', refreshData);
-    };
-  }, []);
+  const { teardowns, loading, error } = useTeardowns();
 
   // Get all unique tags
   const allTags = useMemo(() => {
@@ -146,7 +128,6 @@ const FailureStories = () => {
               className="text-red-600 hover:text-red-700 font-medium text-sm flex items-center"
             >
               Read Full Story
-              <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </div>
         </div>
@@ -226,17 +207,40 @@ const FailureStories = () => {
           </div>
         </div>
 
+        {/* Loading State */}
+        {loading && (
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading failure stories...</p>
+          </div>
+        )}
+
+        {/* Error State */}
+        {error && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
+            <p className="text-red-800">{error}</p>
+            <button 
+              onClick={() => window.location.reload()} 
+              className="mt-2 text-red-600 hover:text-red-700 font-medium"
+            >
+              Try again
+            </button>
+          </div>
+        )}
+
         <div className="flex max-w-7xl mx-0 pl-4 pr-0 sm:pl-6 sm:pr-0 lg:pl-8 lg:pr-0 max-sm:grid max-md:grid">
           <div>
             {/* Teardown Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-1 gap-6 mb-12 max-w-3xl px-4 sm:px-6 lg:px-8">
-              {filteredTeardowns.map(teardown => (
-                <TeardownCard key={teardown.id} teardown={teardown} />
-              ))}
-            </div>
+            {!loading && !error && (
+              <div className="grid grid-cols-1 lg:grid-cols-1 gap-6 mb-12 max-w-3xl px-4 sm:px-6 lg:px-8">
+                {filteredTeardowns.map(teardown => (
+                  <TeardownCard key={teardown.id} teardown={teardown} />
+                ))}
+              </div>
+            )}
 
             {/* No Results */}
-            {filteredTeardowns.length === 0 && (
+            {!loading && !error && filteredTeardowns.length === 0 && (
               <div className="text-center py-12">
                 <TrendingDown className="h-12 w-12 text-gray-400 mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-gray-900 mb-2">No failure stories found</h3>
